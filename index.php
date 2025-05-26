@@ -1,6 +1,7 @@
 <?php 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 </head>
 <body class="bg-red-500">
   <!-- <?php require_once("php/header.php") ?> -->
-  <nav class="w-full h-[50px] flex items-center px-4 bg-gray-100">
+  <nav class="w-full h-10 flex items-center px-4 bg-gray-100">
     <h1 class="text-xl font-bold">Grandia Resort</h1>
   </nav>
 </body>
