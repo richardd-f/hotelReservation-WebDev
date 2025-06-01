@@ -7,12 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: '#1E40AF',     // brand = bg-brand
-          light: '#3B82F6',       // brand-light = bg-brand-light
-          dark: '#1E3A8A'         // brand-dark = bg-brand-dark
-        },
-        gold: '#FFD700',          // use bg-gold, text-gold, etc.
+        'brand-black': 'var(--brand-black)',
+        'brand-gold-dark': 'var(--brand-gold-dark)',
+        'brand-gold': 'var(--brand-gold)',
+        'brand-gold-light': 'var(--brand-gold-light)',
+        'brand-purple': 'var(--brand-purple)',
       },
     },
   },

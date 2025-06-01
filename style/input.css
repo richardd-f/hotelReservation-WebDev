@@ -1,3 +1,162 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/** Brand
+    */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/* Variables */
+:root {
+    --brand-black: #050016;
+    --brand-gold-dark: #392513;
+    --brand-gold: #FFCC00;
+    --brand-gold-light: #FFE374;
+    --brand-purple: #3A009F;
+    --font-sansation: 'Sansation', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-nunito-sans: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --section-padding: 9rem 4rem;
+    --section-gap: 5rem;
+}
+
+
+/** Base:
+    Defaults when using an html element */
+
+/* HTML Defaults */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, form {
+    margin: 0;
+    padding: 0;
+    background-color: var(--brand-black);
+    color: white;
+    line-height: 1.6;
+}
+
+/* Text Formatting */
+a { color: var(--brand-gold); transition: all 0.2s linear; }
+a:hover { color: var(--brand-gold-light); }
+
+a, p, blockquote, button, input, ol, ul, li
+    { font-family: var(--font-nunito-sans); font-size: clamp(1rem, 2vw, 1.125rem); }
+
+h1, h2, h3, h4, h5
+    { font-family: var(--font-sansation); line-height: 1.4; font-weight:100}
+
+h1 { font-size: clamp(3rem, 8vw, 5rem); }
+h2 { font-size: clamp(2.5rem, 6vw, 4rem); }
+h3 { font-size: clamp(2rem, 4vw, 3rem); }
+h4 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h5 { font-size: clamp(1.25rem, 2vw, 2rem); }
+
+@media screen and (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.25rem; }
+}
+
+/* Elements Formatting */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
+}
+
+ol { list-style: decimal; }
+
+
+/* Input Formatting */
+input[type=text], select {
+    cursor: text;
+    transition: all 0.3s;
+}
+
+input[type=text]:focus, select:focus {
+    border: 0;
+    outline: 0;
+    transform: scale(101%);
+}
+
+/* Class Utils */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--section-gap);
+    padding: var(--section-padding);
+}
+
+
+
+
+
+/** Modules:
+    Repeated components of the site */
+
+/* Headers */
+.m-header {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.m-header-content {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.m-header-small {
+    height: 12rem;
+}
+
+.m-header-big {
+    height: 60vh;
+    min-height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
