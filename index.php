@@ -1,4 +1,4 @@
-<?php 
+<?php include 'header.php';
 
 ?>
 
@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style/output.css" rel="stylesheet" />
   <title>Grandia Resort</title>
+  <script src="script/jquery.js"></script>
 </head>
 <body class="">
   <!-- <?php require_once("php/header.php") ?> -->
@@ -17,3 +18,8 @@
   </nav>
 </body>
 </html>
+
+
+<?php include 'footer.php';
+
+?>
