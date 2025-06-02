@@ -1,10 +1,12 @@
 <footer class="border-t-2 border-t-[#383838] mt-10 py-10">
-    <div class="footerTop grid grid-cols-[1fr_2fr] w-full px-10">
-        <div class="ftLeft bg-yellow-300">
+    <div class="footerTop grid grid-cols-[2fr_1fr] w-full px-10">
+        <div class="ftLeft w-full">
             <h3>Grandia Resort</h3>
             <p>Jl. Kartika Plaza, Kuta, Bali - Indonesia</p>
         </div>
-        <div class="ftRight bg-purple-500">
+
+        <div class="ftRight w-full text-[]">
+            <!-- instagram sosmed -->
             <a class="flex justify-start items-center" href="https://instagram.com/richardd._f">
                 <svg class="aspect-square mr-2 w-11 fill-current hover:text-[#00F2FF] duration-300 hover:drop-shadow-[0_0_15px_#00F2FF]" fill="#ffffff" viewBox="0 0 32 32" id="Camada_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g>
@@ -15,6 +17,7 @@
                 </svg>
                 <span>@grandia_resort</span>
             </a> 
+
 
         </div>
     </div>
