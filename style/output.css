@@ -31983,6 +31983,8 @@ video {
   --font-nunito-sans: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --section-padding: 9rem 4rem;
   --section-gap: 5rem;
+  --element-padding: 4rem 2rem;
+  --element-gap: 2rem;
 }
 
 /** Base:
@@ -32102,8 +32104,20 @@ input[type=text]:focus, select:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.element-pad {
+  gap: var(--element-gap);
+  padding: var(--element-padding);
+}
+
+.section-pad {
   gap: var(--section-gap);
   padding: var(--section-padding);
+}
+
+.content-max-width {
+  max-width: 1284px;
 }
 
 /** Modules:
@@ -32117,7 +32131,6 @@ input[type=text]:focus, select:focus {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
