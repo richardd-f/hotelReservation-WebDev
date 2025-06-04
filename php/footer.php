@@ -1,8 +1,8 @@
 <footer class="border-t-2 border-t-[#383838] mt-10 py-10 px-[2rem]">
-    <div class="footerTop flex justify-evenly w-full px-10">
+    <div class="footerTop flex justify-evenly flex-col lg:flex-row w-full px-10">
         <div class="ftLeft w-2/5 content-center">
             <!-- LOGO -->
-            <svg class="fill-brand-gold aspect-square w-[40%] filter drop-shadow-[0_6px_10px_black]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
+            <svg class="fill-brand-gold aspect-square w-[10rem] md:w-[80%] lg:w-[40%] filter drop-shadow-[0_6px_10px_black]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
                 <path class="cls-1" d="M102.64,271.61v-23.66s-12.6-8.17-38.47-8.17S0,258.33,0,298.33s28.09,62.98,58.55,62.98,44.09-10.38,44.09-10.38v-37.62s1.7-7.49,7.83-7.49v-4.47h-35.74v4.3s8.85,3.23,8.85,7.66v32.6s-1.91,6.17-19.28,6.17-43.02-13.91-43.02-49.15,12.77-54.3,40.85-54.3,34.53,23.15,34.53,23.15l5.98-.17Z"/>
                 <path class="cls-1" d="M130.81,354.38c5.87,0,8.04-9.06,8.04-9.06v-89.74c0-6.64-8.04-10.21-8.04-10.21v-2.94h49.4c16.6,0,34.98,11.62,34.98,32.17s-25.28,29.36-25.28,29.36c0,0,27.19,40.85,30.77,45.19s11.23,6,11.23,6v3.06h-28.6l-31.53-51.19h-13.4v38.04c0,6.89,9.06,9.19,9.06,9.19v3.96h-36.64v-3.83ZM158.04,250.5v47.74h19.4s18.38-3.06,18.38-21.87-14.81-25.87-18.89-25.87h-18.89Z"/>
                 <path class="cls-1" d="M242.77,354.25c6.64-2.3,11.36-11.49,11.36-11.49l35.74-100.34h13.79l39.32,99.83c2.55,6.77,10.6,12.64,10.6,12.64v3.32h-36.64v-3.57c9.19-2.55,6-11.11,6-11.11l-9.96-24.77h-40.47l-6.77,21.96c-3.32,10.47,6.77,13.79,6.77,13.79v3.7h-29.74v-3.96ZM276.53,310.59h33.77l-17.49-44.36-16.28,44.36Z"/>
@@ -20,7 +20,7 @@
             </svg>
         </div>
 
-        <div class="ftRight w-3/5 flex justify-between items-center text-sm">
+        <div class="ftRight w-3/5 flex justify-between items-start lg:items-center flex-col lg:flex-row text-sm">
             <!-- instagram sosmed -->
             <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
                 <svg class="aspect-square mr-1 w-11 fill-current text-brand-gold hover:text-gold duration-300 hover:drop-shadow-[0_0_15px_#FFE374]" fill="#ffffff" viewBox="0 0 32 32" id="Camada_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
