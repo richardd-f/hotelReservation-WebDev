@@ -110,6 +110,43 @@
     </section>
 
     <main class="block max-w-7xl m-auto">
+        <!-- SHOW OFF ROOM -->
+         <!-- left img -->
+        <div class="flex flex-col lg:flex-row w-full h-256">
+            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full">
+                <h2>Luxurious Rooms</h2>
+                <p>This is a good room wow This is a good room wow This is a good room wow</p>
+            </div>
+            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
+                <!-- Background Image -->
+                <img src="imgs/room-1.jpg"
+                    alt="Resort Room"
+                    class="w-full h-auto object-cover" />
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-brand-black to-transparent"></div>
+            </div>
+        </div>
+        <!-- right img -->
+        <div class="flex flex-col lg:flex-row w-full h-256">
+            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
+                <!-- Background Image -->
+                <img src="imgs/room-1.jpg"
+                alt="Resort Room"
+                class="w-full h-auto object-cover" />
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-l from-brand-black to-transparent"></div>
+            </div>
+            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full">
+                <h2>Luxurious Rooms</h2>
+                <p>This is a good room wow This is a good room wow This is a good room wow</p>
+            </div>
+        </div>
+
+
+        
+        <!-- INTRODUCE  -->
         <section>
             <div class="flex-center flex-col section-pad">
                 <h1>Who Are We</h1>
@@ -135,25 +172,6 @@
                       <p>Short paragraph that describe dining</p>
                     </div>
                 </div>
-            </div>
-        </section>
-    
-        <section class="flex flex-col lg:flex-row w-full h-256">
-            <!-- Text -->
-            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full">
-                <h2>Luxurious Rooms</h2>
-                <p>This is a good room wow This is a good room wow This is a good room wow</p>
-            </div>
-
-            <!-- Image -->
-            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
-                <!-- Background Image -->
-                <img src="imgs/room-1.jpg"
-                    alt="Resort Room"
-                    class="w-full h-auto object-cover" />
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-brand-black to-transparent"></div>
             </div>
         </section>
     </main>
