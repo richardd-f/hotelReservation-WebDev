@@ -45,9 +45,9 @@
             </svg>
 
             <!-- CTA Box -->
-            <div class="flex justify-center drop-shadow-xl duration-200 border-[0.25rem] border-brand-gold hover:border-brand-gold-light bg-brand-black h-[4rem] rounded-full min-w-sm w-1/2 z-3">
+            <div class="flex justify-center px-5 drop-shadow-xl duration-200 border-[0.25rem] border-brand-gold hover:border-brand-gold-light bg-brand-black h-[4rem] rounded-full min-w-sm w-1/2 z-3">
                 <!-- INPUT DATE CONTAINER -->
-                <div class="dateInput h-full w-full flex items-center justify-center pl-5 gap-1">
+                <div class="dateInput h-full w-full flex items-center justify-center gap-1">
                     <svg class="stroke-current text-brand-gold aspect-square h-[70%]" viewBox="0 0 24 24" fill="none">
                     <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- INPUT PEOPLE AMOUNT CONTAINER -->
-                <div x-data="peopleCounter()" class="countPeopleInput h-full w-full flex items-center justify-center pl-5 gap-3">
+                <div x-data="peopleCounter()" class="countPeopleInput h-full w-full flex items-center justify-center gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 610" class="fill-brand-gold aspect-square h-[50%]">
                         <path d="M248.07 -12.79c-72.13 0-131.34 59.25-131.34 131.39 0 38.92 17.25 74.07 44.45 98.21-102.69 38.04-175.8 141.41-175.8 261.04A35.04 35.04 0 0 0 20.43 513h168.53c6.89-25.46 17.92-49.15 32.46-70.07H58.24c15.49-97.42 95.14-170.55 189.83-170.55 13.12 0 25.94 1.45 38.36 4.13 4.26-42.81 34.6-78.31 74.73-90.32 11.58-19.54 18.25-42.28 18.25-66.47 0-72.14-59.21-131.39-131.34-131.39zm0 70.07c34.24 0 61.27 27.03 61.27 61.32s-27.03 61.33-61.27 61.33-61.27-27.03-61.27-61.33 27.03-61.32 61.27-61.32z"/>
                         <path d="M405.68 197.48c-57.71 0-105.07 47.4-105.07 105.11 0 31.14 13.8 59.26 35.56 78.57-82.15 30.43-140.63 113.13-140.63 208.83a28.03 28.03 0 0 0 28.03 28.03h182.12 182.11a28.03 28.03 0 0 0 28.03-28.03c0-95.7-58.48-178.4-140.63-208.83 21.76-19.31 35.56-47.43 35.56-78.57 0-57.71-47.37-105.11-105.07-105.11zm0 56.06c27.39 0 49.02 21.62 49.02 49.06s-21.62 49.06-49.02 49.06-49.02-21.63-49.02-49.06 21.63-49.06 49.02-49.06zm0 171.19c75.75 0 139.47 58.51 151.87 137.24H405.68 253.81c12.4-78.73 76.12-137.24 151.87-137.24z"/>
@@ -104,12 +104,41 @@
                         }
                     </script>
                 </div>
-                </div>
+
+                <!-- SEARCH BUTTON -->
+                <button>
+                    <svg class="aspect-square stroke-current text-brand-gold h-[65%]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
 
     <main class="block max-w-7xl m-auto">
+        
+        <!-- OUR SERVICE -->
+        <div class="flex-center flex-col section-pad">
+            <h2 class="self-center">Our Services</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="bg-brand-purple flex-center flex-col element-pad">
+                    <!-- Logo -->
+                    <h3 class="text-center">Dining</h3>x
+                    <p>Short paragraph that describe dining</p>
+                </div>
+                <div class="bg-brand-purple flex-center flex-col element-pad">
+                    <!-- Logo -->
+                    <h3 class="text-center">Stuff</h3>
+                    <p>Short paragraph that describe dining</p>
+                </div>
+                <div class="bg-brand-purple flex-center flex-col element-pad">
+                    <!-- Logo -->
+                    <h3 class="text-center">Events</h3>
+                    <p>Short paragraph that describe dining</p>
+                </div>
+            </div>
+        </div>
+
         <!-- SHOW OFF ROOM -->
          <!-- left img -->
         <div class="flex flex-col lg:flex-row w-full h-256">
@@ -145,33 +174,12 @@
         </div>
 
 
-        
+
         <!-- INTRODUCE  -->
         <section>
             <div class="flex-center flex-col section-pad">
                 <h1>Who Are We</h1>
                 <p>Grandia Resort is a 5-star luxury escape nestled along pristine beaches, offering unrivaled hospitality, fine dining, and exquisite accommodations for the discerning traveler.</p>
-            </div>
-    
-            <div class="flex-center flex-col section-pad">
-                <h2 class="self-center">Our Services</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <div class="bg-brand-purple flex-center flex-col element-pad">
-                      <!-- Logo -->
-                      <h3 class="text-center">Dining</h3>x
-                      <p>Short paragraph that describe dining</p>
-                    </div>
-                    <div class="bg-brand-purple flex-center flex-col element-pad">
-                      <!-- Logo -->
-                      <h3 class="text-center">Stuff</h3>
-                      <p>Short paragraph that describe dining</p>
-                    </div>
-                    <div class="bg-brand-purple flex-center flex-col element-pad">
-                      <!-- Logo -->
-                      <h3 class="text-center">Events</h3>
-                      <p>Short paragraph that describe dining</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>

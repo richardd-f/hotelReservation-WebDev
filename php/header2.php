@@ -1,6 +1,6 @@
 <nav id="navBar" class="fixed flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
     <div class="leftNav w-full h-full flex justify-between items-center">
-        <svg id="Layer_1" class="fill-brand-gold aspect-square h-[100%]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
+        <svg id="Layer_1" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
             <!-- <defs>
                 <style>
                 .cls-1 {
@@ -25,7 +25,7 @@
             <path class="cls-1" d="M328.68,459.87s8.43,9.02,21.36,9.02,20.34-8.85,20.34-14.81-2.89-14.81-17.87-17.7-15.66-14.13-2.98-14.13c0,0,6.13-.94,12.51,5.02l6.21-7.32s-8.26-6.98-18.72-6.98-19.15,7.83-19.15,15.57,1.87,13.45,16.77,16.6,18.72,12,2.89,14.47c0,0-10.98.17-15.74-7.06l-5.62,7.32Z"/>
         </svg>
     </div>
-    <div class="rightNav w-full text-white flex justify-end items-center gap-5">
+    <div class="rightNav w-full text-white flex justify-end items-center gap-10">
         <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold" href="">Facilities</a>
         <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">Places Nearby</a>
         <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">About Us</a>
