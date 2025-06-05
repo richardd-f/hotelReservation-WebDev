@@ -1,26 +1,19 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style/output.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="imgs/logo/logo-grandia.svg" type="image">
-    <title>Grandia Resort</title>
-    <script src="script/jquery.js"></script>
+    <title>Login</title>
     
+    <link href="style/output.css" rel="stylesheet" />
     <!-- litepicker for daterange -->
     <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <!-- alpine js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
-
-<body class="w-full relative">
-    
+<body>
     <section id="hero" class="relative top-0 left-0 -z-1 h-dvh overflow-hidden">
         <?php require_once("php/header2.php") ?>
         <img class=" fixed top-0 left-0 w-full h-full object-cover opacity-60" style="" src="imgs/hero-landing.webp" alt="">
@@ -44,7 +37,7 @@
                 <polygon class="cls-1" points="550.94 414.25 593.7 414.25 593.7 423.82 577.11 423.82 577.11 468.12 567.4 468.12 567.4 423.82 550.94 423.82 550.94 414.25"/>
                 <path class="cls-1" d="M328.68,459.87s8.43,9.02,21.36,9.02,20.34-8.85,20.34-14.81-2.89-14.81-17.87-17.7-15.66-14.13-2.98-14.13c0,0,6.13-.94,12.51,5.02l6.21-7.32s-8.26-6.98-18.72-6.98-19.15,7.83-19.15,15.57,1.87,13.45,16.77,16.6,18.72,12,2.89,14.47c0,0-10.98.17-15.74-7.06l-5.62,7.32Z"/>
             </svg>
-            
+            <!-- CTA Container -->
             <div class=" w-dvw md:w-full lg:w-1/2 ">
                 <!-- CTA Box -->
                 <div class="flex justify-center px-3 m-auto drop-shadow-xl duration-200 border-[0.25rem] border-brand-gold hover:border-brand-gold-light bg-brand-black h-[3rem] w-fit rounded-full z-3">
@@ -117,106 +110,5 @@
             </div>
         </div>
     </section>
-
-    <main class="block max-w-7xl m-auto">
-        
-        <!-- OUR SERVICE -->
-        <div class="flex-center flex-col section-pad relative z-2 bg-brand-black">
-            <h2 class="self-center">Our Services</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[30rem]">
-                
-                <!-- Fine Dining Card -->
-                <div class="relative h-full w-full">
-                    <!-- Background image -->
-                    <div class="absolute inset-0 bg-[url('../imgs/fine-dining-cliff.png')] bg-cover bg-center"></div>
-
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/70 to-transparent"></div>
-
-                    <!-- Content -->
-                    <div class="relative flex flex-col justify-end h-full px-5 py-10 text-white">
-                        <h3 class="text-center text-4xl mb-2">Fine Dining</h3>
-                        <p class="text-center text-[1rem]">Culinary mastery meets dramatic clifftop views. A unique gastronomic experience.</p>
-                    </div>
-                </div>
-                
-                <!-- Modern Stuff Card -->
-                <div class="relative h-full w-full">
-                    <!-- Background image -->
-                    <div class="absolute inset-0 bg-[url('../imgs/smart-room.webp')] bg-cover bg-center"></div>
-
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-brand-black/50 to-transparent"></div>
-
-                    <!-- Content -->
-                    <div class="relative flex flex-col justify-end h-full px-5 py-10 text-white">
-                        <h3 class="text-center text-4xl mb-2">Modern Stuff</h3>
-                        <p class="text-center text-[1rem]">Control every comfort - lights, AC, curtains, and Smart TV with immersive Dolby Surround Audio System - all from one intuitive app. Your perfect ambiance, effortlessly crafted.</p>
-                    </div>
-                </div>
-
-                <!-- Events Card -->
-                <div class="relative h-full w-full">
-                    <!-- Background image -->
-                    <div class="absolute inset-0 bg-[url('../imgs/tari-kecak.png')] bg-cover bg-center"></div>
-
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-brand-black/40 to-transparent"></div>
-
-                    <!-- Content -->
-                    <div class="relative flex flex-col justify-end h-full px-5 py-10 text-white">
-                        <h3 class="text-center text-4xl mb-2">Events</h3>
-                        <p class="text-center text-[1rem]">Every Saturday, immerse yourself in the vibrant tapestry of Indonesian culture. Enjoy authentic performances and engaging traditional activities.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SHOW OFF ROOM -->
-         <!-- left img -->
-        <div class="flex flex-col lg:flex-row w-full h-256 relative z-2">
-            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full bg-brand-black">
-                <h2>Cozy Rooms</h2>
-                <p>Sleep comfortably in a cozy, nice room with a stunning view of the mountain cliff right outside your window. Feel the fresh air and peaceful calm all around as you rest, and wake up to the beautiful sunrise over the cliffs.</p>
-            </div>
-            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
-                <!-- Background Image -->
-                <img src="imgs/room-1.jpg"
-                    alt="Resort Room"
-                    class="w-full h-auto object-cover" />
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-brand-black via-brand-black/20 to-transparent"></div>
-            </div>
-        </div>
-        <!-- right img -->
-        <div class="flex flex-col lg:flex-row w-full h-256">
-            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
-                <!-- Background Image -->
-                <img src="imgs/bathroom.png"
-                alt="Resort Room"
-                class="w-full h-auto object-cover" />
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-l from-brand-black via-brand-black/20 to-transparent"></div>
-            </div>
-            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full relative z-2 bg-brand-black">
-                <h2>Sunset Serenity</h2>
-                <p>Enjoy the best bathroom experience in the world, where you can soak in a bathtub and watch the sunset paint the sky with beautiful colors. It’s the perfect way to relax and feel peaceful while taking in the view.</p>
-            </div>
-        </div>
-
-
-
-        <!-- INTRODUCE  -->
-        <section>
-            <div class="flex-center flex-col section-pad relative z-2 bg-brand-black/75">
-                <h1>Who Are We</h1>
-                <p>Grandia Resort in Batu, East Java, Indonesia, offers more than just the best rest — it’s a place where you can truly feel Indonesian culture. Every Saturday, the hotel hosts special events celebrating local traditions, making your stay unforgettable. Our spacious rooms blend modern comfort with traditional charm, providing a peaceful retreat after a day of exploring. Enjoy the refreshing mountain air while relaxing by our infinity pool or unwind in the serene spa offering traditional treatments. For the active traveler, we offer guided hiking tours, cultural workshops, and yoga sessions overlooking breathtaking cliff views. Plus, our top chefs serve delicious dishes that bring the best taste in every bite. With personalized service and stunning natural surroundings, Grandia Resort promises a unique and memorable experience you won’t find anywhere else.</p>
-            </div>
-        </section>
-    </main>
-
-    <?php require_once "php/footer.php"?>
 </body>
 </html>

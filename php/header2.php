@@ -27,8 +27,8 @@
     </div>
     <div class="rightNav w-full text-white flex justify-end items-center gap-10">
         <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold" href="">Facilities</a>
-        <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">Places Nearby</a>
-        <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">About Us</a>
+        <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">Places nearby</a>
+        <a class="text-xl border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold"  href="">About us</a>
     </div>
 </nav>
 

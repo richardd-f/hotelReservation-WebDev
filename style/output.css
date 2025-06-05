@@ -1097,6 +1097,11 @@ html {
   --tw-gradient-stops: var(--tw-gradient-from), rgba(5, 0, 22, 0.3) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
+.via-brand-black\/20 {
+  --tw-gradient-to: rgba(5, 0, 22, 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(5, 0, 22, 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
 }
