@@ -30,6 +30,29 @@
 
 /** Base:
     Defaults when using an html element */
+    @layer base{
+        html {
+            /* font-size: 16px; */
+        }
+
+    @media (max-width: 1024px) {
+        html {
+        font-size: 15px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        html {
+        font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        html {
+        font-size: 12px;
+        }
+    }
+    }
 
 /* HTML Defaults */
 *, *::before, *::after { box-sizing: border-box; }
