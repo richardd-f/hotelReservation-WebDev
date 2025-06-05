@@ -15,7 +15,6 @@
 </head>
 <body>
     <section id="hero" class="relative top-0 left-0 -z-1 h-dvh overflow-hidden">
-        <?php require_once("php/header2.php") ?>
         <img class=" fixed top-0 left-0 w-full h-full object-cover opacity-60" style="" src="imgs/hero-landing.webp" alt="">
         
         <!-- HERO CONTAINER : BIG LOGO & CTA BOX -->
