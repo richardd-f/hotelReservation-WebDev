@@ -7,7 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-black': 'var(--brand-black)',
+        'brand-black': ({ opacityValue }) =>
+          opacityValue === undefined
+            ? 'var(--brand-black)'
+            : `rgba(5, 0, 22, ${opacityValue})`,
         'brand-gold-dark': 'var(--brand-gold-dark)',
         'brand-gold': 'var(--brand-gold)',
         'brand-gold-light': 'var(--brand-gold-light)',

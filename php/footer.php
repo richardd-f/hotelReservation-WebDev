@@ -1,8 +1,8 @@
-<footer class="border-t-2 border-t-[#383838] mt-10 py-10 px-[2rem]">
-    <div class="footerTop flex justify-evenly flex-col lg:flex-row w-full px-10">
+<footer class="border-t-2 border-t-[#383838] pb-4 px-8 md:px-[5rem] bg-brand-black relative z-2">
+    <div class="footerTop flex justify-evenly flex-col lg:flex-row w-full">
         <div class="ftLeft w-2/5 content-center">
             <!-- LOGO -->
-            <svg class="fill-brand-gold aspect-square w-[10rem] md:w-[80%] lg:w-[40%] filter drop-shadow-[0_6px_10px_black]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
+            <svg class="fill-brand-gold aspect-square w-[10rem] md:w-[80%] lg:w-[40%] max-w-[191px] filter drop-shadow-[0_6px_10px_black]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
                 <path class="cls-1" d="M102.64,271.61v-23.66s-12.6-8.17-38.47-8.17S0,258.33,0,298.33s28.09,62.98,58.55,62.98,44.09-10.38,44.09-10.38v-37.62s1.7-7.49,7.83-7.49v-4.47h-35.74v4.3s8.85,3.23,8.85,7.66v32.6s-1.91,6.17-19.28,6.17-43.02-13.91-43.02-49.15,12.77-54.3,40.85-54.3,34.53,23.15,34.53,23.15l5.98-.17Z"/>
                 <path class="cls-1" d="M130.81,354.38c5.87,0,8.04-9.06,8.04-9.06v-89.74c0-6.64-8.04-10.21-8.04-10.21v-2.94h49.4c16.6,0,34.98,11.62,34.98,32.17s-25.28,29.36-25.28,29.36c0,0,27.19,40.85,30.77,45.19s11.23,6,11.23,6v3.06h-28.6l-31.53-51.19h-13.4v38.04c0,6.89,9.06,9.19,9.06,9.19v3.96h-36.64v-3.83ZM158.04,250.5v47.74h19.4s18.38-3.06,18.38-21.87-14.81-25.87-18.89-25.87h-18.89Z"/>
                 <path class="cls-1" d="M242.77,354.25c6.64-2.3,11.36-11.49,11.36-11.49l35.74-100.34h13.79l39.32,99.83c2.55,6.77,10.6,12.64,10.6,12.64v3.32h-36.64v-3.57c9.19-2.55,6-11.11,6-11.11l-9.96-24.77h-40.47l-6.77,21.96c-3.32,10.47,6.77,13.79,6.77,13.79v3.7h-29.74v-3.96ZM276.53,310.59h33.77l-17.49-44.36-16.28,44.36Z"/>
@@ -20,44 +20,50 @@
             </svg>
         </div>
 
-        <div class="ftRight w-3/5 flex justify-between items-start lg:items-center flex-col lg:flex-row text-sm">
-            <!-- instagram sosmed -->
-            <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
-                <svg class="aspect-square mr-1 w-11 fill-current text-brand-gold hover:text-gold duration-300 hover:drop-shadow-[0_0_15px_#FFE374]" fill="#ffffff" viewBox="0 0 32 32" id="Camada_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g>
-                        <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
-                        <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8   c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
-                        <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8   c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
-                    </g>
-                </svg>
-                <span>@grandia_resort</span>
-            </a> 
-
-            <!-- youtube sosmed -->
-            <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
-                <svg class="aspect-square w-9 mr-2 fill-brand-gold" viewBox="0 0 461.001 461.001">
-                <g>
-                    <path style="" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
-                        c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
-                        C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
-                        c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
-                </g>
-                </svg>
-                <span>@grandia_resort</span>
-            </a> 
-            
-            <!-- email sosmed -->
-            <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
-                    <svg class="aspect-square w-10 fill-brand-gold mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 4C21.6569 4 23 5.34315 23 7V17C23 18.6569 21.6569 20 20 20H4C2.34315 20 1 18.6569 1 17V7C1 5.34315 2.34315 4 4 4H20ZM19.2529 6H4.74718L11.3804 11.2367C11.7437 11.5236 12.2563 11.5236 12.6197 11.2367L19.2529 6ZM3 7.1688V17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17V7.16882L13.8589 12.8065C12.769 13.667 11.231 13.667 10.1411 12.8065L3 7.1688Z" />
+        <!-- RIGHT SIDE -->
+        <div class="ftRight w-full lg:w-3/5 flex flex-col items-center">
+            <div class="sosmedContainer flex justify-center gap-2 lg:gap-4 items-start lg:items-center flex-col lg:flex-row text-sm w-full h-full">
+                <!-- instagram sosmed -->
+                <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
+                    <svg class="aspect-square mr-1 w-11 fill-current text-brand-gold hover:text-gold duration-300 hover:drop-shadow-[0_0_15px_#FFE374]" fill="#ffffff" viewBox="0 0 32 32" id="Camada_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8   c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8   c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </g>
                     </svg>
-                <span>information@grandiaresort.com</span>
-            </a> 
-
-
+                    <span>@grandia_resort</span>
+                </a> 
+    
+                <!-- youtube sosmed -->
+                <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
+                    <svg class="aspect-square w-9 mr-2 fill-brand-gold" viewBox="0 0 461.001 461.001">
+                    <g>
+                        <path style="" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
+                            c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
+                            C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
+                            c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
+                    </g>
+                    </svg>
+                    <span>Grandia Resort Media</span>
+                </a> 
+                
+                <!-- email sosmed -->
+                <a class="flex justify-start items-center text-white hover:text-brand-gold" href="https://instagram.com/richardd._f">
+                        <svg class="aspect-square w-10 fill-brand-gold mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 4C21.6569 4 23 5.34315 23 7V17C23 18.6569 21.6569 20 20 20H4C2.34315 20 1 18.6569 1 17V7C1 5.34315 2.34315 4 4 4H20ZM19.2529 6H4.74718L11.3804 11.2367C11.7437 11.5236 12.2563 11.5236 12.6197 11.2367L19.2529 6ZM3 7.1688V17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17V7.16882L13.8589 12.8065C12.769 13.667 11.231 13.667 10.1411 12.8065L3 7.1688Z" />
+                        </svg>
+                    <span>information@grandiaresort.com</span>
+                </a> 
+            
+            </div>
+            
+            <div class="credit flex justify-self-center">
+                <p>© 2025 Grandia Resort. All rights reserved.</p>
+            </div>
         </div>
     </div>
-    <div class="footerBot flex justify-self-center pt-3">
-        <p>© 2025 Grandia Resort. All rights reserved.</p>
-    </div>
+<!--     
+    <div class="foooterBot">
+    </div> -->
 </footer>

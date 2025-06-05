@@ -12,9 +12,9 @@
 
 /* Variables */
 :root {
-    --brand-black: #050016;
+    --brand-black: rgb(5, 0, 22);
     --brand-gold-dark: #392513;
-    --brand-gold: #FFCC00;
+    --brand-gold: rgb(255, 204, 0);
     --brand-gold-light: #FFE374;
     --brand-purple: #3A009F;
     --font-sansation: 'Sansation', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
