@@ -1,4 +1,4 @@
-<nav id="navBar" class="fixed flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
+<nav id="navBar" class="fixed select-none flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
     <div class="leftNav w-fit h-full flex justify-between items-center">
         <svg id="Layer_1" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
             <!-- <defs>
@@ -81,27 +81,27 @@
             
             <div id="nameBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="name" class="text-[1.5rem]">Name</label>
-                <input required id="name" placeholder="enter your name here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input id="name" value="<?= isset($userInfo["name"]) ? $userInfo["name"] : ""?>" placeholder="enter your name here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div id="emailBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="email" class="text-[1.5rem]">Email</label>
-                <input required id="email" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input  id="email" value="<?= isset($userInfo["email"]) ? $userInfo["email"] : ""?>" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div id="phoneBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="phoneNumber" class="text-[1.5rem]">Phone Number</label>
-                <input required id="phoneNumber" placeholder="enter your phone number here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input id="phoneNumber" value="<?= isset($userInfo["phone_number"]) ? $userInfo["phone_number"] : ""?>" type="number" placeholder="enter your phone number here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div id="addressBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="address" class="text-[1.5rem]">Address</label>
-                <input required id="address" placeholder="enter your address here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input  id="address" value="<?= isset($userInfo["address"]) ? $userInfo["address"] : ""?>" placeholder="enter your address here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div id="birthdateBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="birthdate" class="text-[1.5rem]">Birthdate</label>
-                <input required id="birthdate" placeholder="enter your birthdate here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input  id="birthdate" value="<?= isset($userInfo["birthdate"]) ? $userInfo["birthdate"] : ""?>" placeholder="enter your birthdate here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div id="genderBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="gender" class="text-[1.5rem]">Gender</label>
-                <input required id="gender" placeholder="enter your gender here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input  id="gender" value="<?= isset($userInfo["gender"]) ? $userInfo["gender"] : ""?>" placeholder="enter your gender here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
             </div>
             <div class="row flex justify-evenly mt-4 ">
                 <button id="cancelBtn" class=" duration-200 text-[1.3rem] border-2 border-red-600 px-6 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>
