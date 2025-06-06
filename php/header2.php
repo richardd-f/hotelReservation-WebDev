@@ -30,8 +30,43 @@
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[8rem]"  href="">Places nearby</a>
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[5rem]"  href="index.php#aboutUs">About us</a>
         
-        <?php if($loginStatus): ?>
-        <button href="login.php" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
+        <?php if($loginStatus[0]): ?>
+        <div class="relative">
+            <button id="myProfileBtn" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
+            <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[18rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
+                <h3 class="text-[1.5rem] mb-2">My Profile</h3>
+                <div class="descContainer flex flex-col gap-1">
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Name</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["name"]) ? $userInfo["name"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Email</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["email"]) ? $userInfo["email"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Address</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["address"]) ? $userInfo["address"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Birthdate</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["birthdate"]) ? $userInfo["birthdate"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Gender</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["gender"]) ? $userInfo["gender"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-evenly mt-4 ">
+                        <button id="editProfileBtn" class=" duration-200 text-[1rem] border-2 border-brand-gold px-3 py-1 rounded-lg text-brand-gold hover:bg-brand-gold hover:text-brand-black">Edit Info</button>
+                        <button onclick="window.location.href='index.php?logout=true'" class=" duration-200 text-[1rem] border-2 border-red-600 px-3 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Logout</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        </div>
         <?php else:?>
         <button onclick="window.location.href='login.php'" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">Log In</button>
         <button onclick="window.location.href='register.php'" class=" px-4 py-1 rounded-md text-brand-black bg-brand-gold text-[1rem]">Register</button>
@@ -39,6 +74,41 @@
 
     </div>
 </nav>
+<!-- POP UP MENU FOR UPDATE USER INFORMATION -->
+    <div id="editProfileMenu" class="editProfileInfo hidden fixed w-dvw h-dvh top-0 left-0 z-30 items-center justify-center bg-brand-black/40 backdrop-blur-sm">
+        <div id="innerProfileMenu" class="w-[45rem] h-[30rem] bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">
+            <h3 class="text-center mb-4 text-[2.5rem]">Update Profile</h3>
+            
+            <div id="nameBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="name" class="text-[1.5rem]">Name</label>
+                <input required id="name" placeholder="enter your name here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div id="emailBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="email" class="text-[1.5rem]">Email</label>
+                <input required id="email" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div id="phoneBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="phoneNumber" class="text-[1.5rem]">Phone Number</label>
+                <input required id="phoneNumber" placeholder="enter your phone number here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div id="addressBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="address" class="text-[1.5rem]">Address</label>
+                <input required id="address" placeholder="enter your address here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div id="birthdateBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="birthdate" class="text-[1.5rem]">Birthdate</label>
+                <input required id="birthdate" placeholder="enter your birthdate here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div id="genderBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
+                <label for="gender" class="text-[1.5rem]">Gender</label>
+                <input required id="gender" placeholder="enter your gender here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+            </div>
+            <div class="row flex justify-evenly mt-4 ">
+                <button id="cancelBtn" class=" duration-200 text-[1.3rem] border-2 border-red-600 px-6 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>
+                <button class=" duration-200 text-[1.3rem] border-2 border-brand-gold px-6 py-1 rounded-lg text-brand-gold hover:bg-brand-gold hover:text-brand-black">Save</button>
+            </div>
+        </div>
+    </div>
 
 <script>
     let lastScroll = 0;
@@ -53,5 +123,62 @@
             navbar.style.transform = 'translateY(0)';
         }
         lastScroll = currentScroll;
+    }
+
+    myProfileIsClosed = true;
+    $("#myProfileBtn").click(function(e){
+        e.stopPropagation(); // clicking inside the menu won't close it
+        if(myProfileIsClosed){
+            $("#menuMyProfile").slideDown();
+            myProfileIsClosed = false;
+        }else{
+            $("#menuMyProfile").slideUp();
+            myProfileIsClosed = true;
+        }
+    });
+
+    $("#menuMyProfile").click(function(e) {
+        e.stopPropagation(); // clicking inside the menu won't close it
+    });
+
+    $(document).click(function() {
+        if (!myProfileIsClosed) {
+            $("#menuMyProfile").slideUp(); // hide menu if open
+            myProfileIsClosed = true;
+        }
+    });
+
+    // EDIT PROFILE MENU
+    editProfileMenuIsOpen = false;
+    editProfileMenu = document.querySelector("#editProfileMenu");
+    classList = editProfileMenu.classList;
+
+    $("#editProfileBtn").click(function(e){
+        console.log("halo");
+        if(editProfileMenuIsOpen){
+            closeEditProfilMenu();
+        }else{
+            classList.remove('hidden')
+            classList.add('flex');
+            editProfileMenuIsOpen = true;
+        }
+    });
+
+    $("#innerProfileMenu").click(function(e){
+        e.stopPropagation();
+    });
+
+    $(document).click(function() {
+        closeEditProfilMenu();
+    });
+
+    $("#cancelBtn").click(function(){
+        closeEditProfilMenu();
+    });
+
+    function closeEditProfilMenu(){
+        classList.add('hidden')
+        classList.remove('flex'); // hide menu if open
+        editProfileMenuIsOpen = false;
     }
 </script>

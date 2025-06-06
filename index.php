@@ -1,6 +1,20 @@
 <?php 
     require_once "function/loginRegister.php";
+    require_once "function/userInformation.php";
+    
+    if(isset($_GET["logout"])){
+        logout();
+        header("Location: index.php");
+    }
     $loginStatus = checkLogin();
+    
+    if($loginStatus){
+        $getStatus = getUserInformation($loginStatus[1]); //index 0 boolean, index 1 = user_id
+        if($getStatus){
+            $userInfo = $getStatus[1];
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +35,6 @@
 </head>
 
 <body class="w-full relative">
-    
     <section id="hero" class="relative top-0 left-0 -z-1 h-dvh overflow-hidden">
         <?php require_once("php/header2.php") ?>
         <img class=" fixed top-0 left-0 w-full h-full object-cover opacity-60" style="" src="imgs/hero-landing.webp" alt="">
@@ -73,7 +86,7 @@
                             <path d="M248.07 -12.79c-72.13 0-131.34 59.25-131.34 131.39 0 38.92 17.25 74.07 44.45 98.21-102.69 38.04-175.8 141.41-175.8 261.04A35.04 35.04 0 0 0 20.43 513h168.53c6.89-25.46 17.92-49.15 32.46-70.07H58.24c15.49-97.42 95.14-170.55 189.83-170.55 13.12 0 25.94 1.45 38.36 4.13 4.26-42.81 34.6-78.31 74.73-90.32 11.58-19.54 18.25-42.28 18.25-66.47 0-72.14-59.21-131.39-131.34-131.39zm0 70.07c34.24 0 61.27 27.03 61.27 61.32s-27.03 61.33-61.27 61.33-61.27-27.03-61.27-61.33 27.03-61.32 61.27-61.32z"/>
                             <path d="M405.68 197.48c-57.71 0-105.07 47.4-105.07 105.11 0 31.14 13.8 59.26 35.56 78.57-82.15 30.43-140.63 113.13-140.63 208.83a28.03 28.03 0 0 0 28.03 28.03h182.12 182.11a28.03 28.03 0 0 0 28.03-28.03c0-95.7-58.48-178.4-140.63-208.83 21.76-19.31 35.56-47.43 35.56-78.57 0-57.71-47.37-105.11-105.07-105.11zm0 56.06c27.39 0 49.02 21.62 49.02 49.06s-21.62 49.06-49.02 49.06-49.02-21.63-49.02-49.06 21.63-49.06 49.02-49.06zm0 171.19c75.75 0 139.47 58.51 151.87 137.24H405.68 253.81c12.4-78.73 76.12-137.24 151.87-137.24z"/>
                         </svg>
-                        <input type="text" readonly class="text-brand-gold w-[9rem] md:w-[10rem] bg-transparent border-none placeholder-brand-gold cursor-pointer" :value="`${adult} Adult${adult > 1 ? 's' : ''}, ${child} Child${child > 1 ? 'ren' : ''}`" @click="open = !open">
+                        <input id="peopleCount" type="text" readonly class="text-brand-gold w-[9rem] md:w-[10rem] bg-transparent border-none placeholder-brand-gold cursor-pointer" :value="`${adult} Adult${adult > 1 ? 's' : ''}, ${child} Child${child > 1 ? 'ren' : ''}`" @click="open = !open">
                         
                         <!-- Dropdown -->
                         <div x-show="open" @click.outside="open = false" class="absolute top-full mt-2 w-60 bg-white text-black rounded-xl shadow-lg p-4 z-50">
@@ -109,7 +122,7 @@
                     </div>
     
                     <!-- SEARCH BUTTON -->
-                    <button class="w-[2rem]">
+                    <button id="searchBtn" class="w-[2rem]">
                         <svg class="aspect-square stroke-current text-brand-gold h-[65%]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -219,5 +232,31 @@
     </main>
 
     <?php require_once "php/footer.php"?>
+    <script src="script/util.js"></script>
+    <script>
+
+        $("#searchBtn").click(function(){
+            // parse start end date
+            dateRangeRaw = $("#date-range").val();
+            dateRange = dateRangeRaw.split(' - ');
+            dateStart = dateRange[0];
+            dateEnd = dateRange[1];
+
+            // parse child adult amount
+            peopleCount = $("#peopleCount").val();
+            const regex = /(\d+)\s*Adult(?:s)?,\s*(\d+)\s*Child(?:ren)?/i;
+            amount = peopleCount.match(regex);
+            adultAmount = amount[1];
+            childAmount = amount[2];
+
+            if(isEmpty(dateRangeRaw)){
+                $("#date-range").click();
+            }else{
+                window.open("booking.php?dateStart="+dateStart+"&dateEnd="+dateEnd+"&adultAmount="+adultAmount+"&childAmount="+childAmount);
+            }
+        });
+
+
+    </script>
 </body>
 </html>
