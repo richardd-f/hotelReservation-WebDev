@@ -1,9 +1,10 @@
 <?php 
-
+    require_once "function/loginRegister.php";
+    $loginStatus = checkLogin();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -210,7 +211,7 @@
 
         <!-- INTRODUCE  -->
         <section>
-            <div class="flex-center flex-col section-pad relative z-2 bg-brand-black/75">
+            <div id="aboutUs" class="flex-center flex-col section-pad relative z-2 bg-brand-black/75">
                 <h1>Who Are We</h1>
                 <p>Grandia Resort in Batu, East Java, Indonesia, offers more than just the best rest — it’s a place where you can truly feel Indonesian culture. Every Saturday, the hotel hosts special events celebrating local traditions, making your stay unforgettable. Our spacious rooms blend modern comfort with traditional charm, providing a peaceful retreat after a day of exploring. Enjoy the refreshing mountain air while relaxing by our infinity pool or unwind in the serene spa offering traditional treatments. For the active traveler, we offer guided hiking tours, cultural workshops, and yoga sessions overlooking breathtaking cliff views. Plus, our top chefs serve delicious dishes that bring the best taste in every bite. With personalized service and stunning natural surroundings, Grandia Resort promises a unique and memorable experience you won’t find anywhere else.</p>
             </div>

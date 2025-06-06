@@ -1,11 +1,21 @@
 <?php 
+
 require_once "function/loginRegister.php";
-$loginStatus = [true,""];
-if(isset($_POST["email"]) && isset($_POST["password"])){
-    $remember = isset($_POST["remember"]) ? $_POST["remember"] : false;
-    $loginStatus = login($_POST["email"], $_POST["password"], $remember);
-    if($loginStatus[0]){
-        header("Location: index.php");
+$regStatus = [true, ""];
+if(isset($_POST["email"]) && $_POST["password"] && $_POST["confirmPassword"]){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $confirmPassword = $_POST["confirmPassword"];
+    $fullName = $_POST["fullName"];
+    
+    if($password == $confirmPassword){
+        $regStatus = register($email, $password, $fullName);
+        if($regStatus[0]){
+            echo "<script>window.alert('Email Registered')</script>";
+            header("Location: login.php");
+        }
+    }else{
+        $regStatus = [false, "Password confirmation didnt match"];
     }
 }
 
@@ -17,12 +27,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="imgs/logo/logo-grandia.svg" type="image">
-    <title>Login</title>
+    <title>Register Account</title>
     <script src="script/jquery.js"></script>
-    
     <link href="style/output.css" rel="stylesheet" />
 </head>
-<body class="select-none">
+<body>
     <section id="hero" class="relative top-0 left-0 -z-1 h-dvh overflow-hidden">
         <img class=" fixed top-0 left-0 w-full h-full object-cover opacity-60" style="" src="imgs/hero-landing.webp" alt="">
         
@@ -47,34 +56,45 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             </svg>
 
             <!-- FORM -->
-            <form method="post" class="w-[28rem] bg-brand-black p-7 pt-4 rounded-2xl border-[0.25rem] border-brand-gold text-center text-brand-gold text-lg flex flex-col">
-                <h3 class=" text-[2rem] mt-0 mb-5">Login Account</h3>
-                <div class="inputContainer mb-3 flex justify-between w-full">
+            <form method="post" class="w-[32rem] bg-brand-black p-7 pt-4 rounded-2xl border-[0.25rem] border-brand-gold text-center text-brand-gold text-lg flex flex-col">
+                <h3 class=" text-[2rem] mt-0 mb-5">Register Account</h3>
+                <div id="emailBox" class="inputContainer mb-3 flex justify-between w-full">
                     <label for="email">
                         Email
                     </label>
-                    <input id="email" placeholder="your email" value="<?= isset($_POST["email"])? $_POST["email"] : "" ?>" class="px-3 focus:outline-none bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] w-[17rem]" name="email" type="email">
+                    <input required id="email" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
                 </div>
 
-                <div class="inputContainer mb-3 flex justify-between w-full">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" placeholder="your password" class="px-3 focus:outline-none bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] w-[17rem]" type="password">
+                <div id="passwordBox" class="inputContainer mb-3 flex justify-between w-full">
+                    <label for="password">
+                        Password
+                    </label>
+                    <input  required id="password" placeholder="enter your password here" name="password" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" type="password">
                 </div>
                 
-                <div class="inputContainer flex justify-start items-center w-full gap-3">
-                    <input id="remember" name="remember" class="bg-brand-black accent-brand-gold w-5 h-5 cursor-pointer" type="checkbox">
-                    <label for="remember" class="text-[1rem]">Remember Me</label>
+                <div id="confirmPasswordBox" class="inputContainer mb-3 flex justify-between w-full">
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+                    <input required id="confirmPassword" placeholder="confirm your password here" name="confirmPassword" class="placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" type="password">
                 </div>
                 
+                <div id="fullNameBox" class="inputContainer mb-3 hidden justify-between w-full">
+                    <label for="fullName">
+                        Full Name
+                    </label>
+                    <input required id="fullName" placeholder="enter your name here" name="fullName" class="placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:border-brand-gold" type="text">
+                </div>
+
                 <div id="errorBox" class="mb-3 text-[1rem] flex flex-col italic text-red-500">
-                    <?php if(!$loginStatus[0]):?>
-                    <span><?= $loginStatus[1] ?></span>
+                    <?php if(!$regStatus[0]) : ?>
+                        <span><?= $regStatus[1] ?></span>
                     <?php endif;?>
                 </div>
 
-                <div class="btnContainer flex flex-center items-center mt-2">
-                    <button id="loginBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold bg-brand-gold text-brand-black duration-200 hover:scale-[1.01]    active:scale-[0.98] hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Login</button>
-                    <button id="signUpBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Sign Up</button>
+                <div class="btn-container flex flex-center">
+                    <button id="nextBtn" type="button" class="bg-brand-gold hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Next</button>
+                    <button id="loginBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Login</button>
                 </div>
             </form>
         </div>
@@ -82,28 +102,46 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     <script src="script/util.js"></script>
     <script>
         errorBox = $("#errorBox");
-        
-        $("#loginBtn").click(function(event){
-            event.preventDefault();
-            email = $("#email").val();
-            password = $("#password").val();
-            errorBox.html("");
-            if(!isEmpty(email) && !isEmpty(password)){
-                if(isEmail(email)){
-                    $("form").submit();
+        $("#nextBtn").click(function(event){
+            if($(this).text() == "Next"){
+                event.preventDefault();
+                errorBox.html("");
+                
+                email = $("#email").val();
+                password = $("#password").val();
+                confirmPassword = $("#confirmPassword").val();
+    
+                // make sure all field is filled
+                if(isEmpty(email) || isEmpty(password) || isEmpty(confirmPassword)){
+                    errorBox.append("<span>Make sure all field is filled</span>");
                 }else{
-                    errorBox.append("<span>email is invalid</span>");
+                    // check email validation
+                    if(isEmail(email)){
+                        // check password match
+                        if(password == confirmPassword){
+                            $("#emailBox").toggleClass("hidden");
+                            $("#passwordBox").toggleClass("hidden");
+                            $("#confirmPasswordBox").toggleClass("hidden");
+                            $("#fullNameBox").toggleClass("hidden");
+                            $("#fullNameBox").toggleClass("flex");
+                            $("#nextBtn").text('Sign Up');
+                            $("#nextBtn").attr('type', 'submit');
+                        }else{
+                            errorBox.append("<span>Password Confirmation didnt match</span>");
+                        }
+                    }else{
+                        errorBox.append("<span>Email is invalid</span>");
+                    }
                 }
             }else{
-                errorBox.append("<span>make sure all field is filled</span>");
+                errorBox.html("");
             }
         });
 
-        $("#signUpBtn").click(function(e){
+        $("#loginBtn").click(function(e){
             e.preventDefault();
-            window.location.href = "register.php";
+            window.location.href = "login.php";
         });
-
     </script>
 </body>
 </html>
