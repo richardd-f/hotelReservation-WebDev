@@ -742,6 +742,14 @@ html {
   z-index: 50;
 }
 
+.order-first {
+  order: -9999;
+}
+
+.order-last {
+  order: 9999;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -845,6 +853,18 @@ html {
 
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+
+.mt-\[\] {
+  margin-top: ;
+}
+
+.mt-\[3rem\] {
+  margin-top: 3rem;
+}
+
+.mt-\[2rem\] {
+  margin-top: 2rem;
 }
 
 .block {
@@ -970,6 +990,30 @@ html {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-\[40rem\] {
+  height: 40rem;
+}
+
+.h-\[50rem\] {
+  height: 50rem;
+}
+
+.h-\[60rem\] {
+  height: 60rem;
+}
+
+.h-\[70rem\] {
+  height: 70rem;
+}
+
+.h-\[80rem\] {
+  height: 80rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .min-h-screen {
@@ -1255,6 +1299,10 @@ html {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-9 {
+  gap: 2.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1704,6 +1752,26 @@ html {
 .px-14 {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
+}
+
+.px-\[4rem\] {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.px-\[5rem\] {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.py-\[\] {
+  padding-top: ;
+  padding-bottom: ;
+}
+
+.py-\[3rem\] {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .pb-4 {
@@ -2360,6 +2428,10 @@ input[type=text]:focus, select:focus {
     top: 0px;
   }
 
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -2370,6 +2442,10 @@ input[type=text]:focus, select:focus {
 
   .md\:h-\[6rem\] {
     height: 6rem;
+  }
+
+  .md\:h-\[30rem\] {
+    height: 30rem;
   }
 
   .md\:w-\[10rem\] {
@@ -2411,12 +2487,40 @@ input[type=text]:focus, select:focus {
 }
 
 @media (min-width: 1024px) {
+  .lg\:order-last {
+    order: 9999;
+  }
+
+  .lg\:order-none {
+    order: 0;
+  }
+
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .lg\:mb-\[\] {
+    margin-bottom: ;
+  }
+
+  .lg\:mb-\[3rem\] {
+    margin-bottom: 3rem;
+  }
+
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:flex {
     display: flex;
   }
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:h-auto {
+    height: auto;
   }
 
   .lg\:w-1\/2 {

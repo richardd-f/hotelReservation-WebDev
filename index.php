@@ -128,7 +128,7 @@
         <!-- OUR SERVICE -->
         <div id="ourServices" class="flex-center flex-col section-pad relative z-2 bg-brand-black">
             <h2 class="self-center">Our Services</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[30rem]">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[80rem] md:h-[30rem]">
                 
                 <!-- Fine Dining Card -->
                 <div class="relative h-full w-full">
@@ -178,34 +178,34 @@
         </div>
 
         <!-- SHOW OFF ROOM -->
-         <!-- left img -->
-        <div id="ourRooms" class="flex flex-col lg:flex-row w-full h-256 relative z-2">
-            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full bg-brand-black">
+        <div class="flex flex-col lg:flex-row w-full lg:h-128 bg-brand-black">
+            <div class="lg:w-2/5 flex flex-col justify-center z-10 order-last lg:order-none bg-brand-black gap-9 px-[5rem] py-[3rem]">
                 <h2>Cozy Rooms</h2>
                 <p>Sleep comfortably in a cozy, nice room with a stunning view of the mountain cliff right outside your window. Feel the fresh air and peaceful calm all around as you rest, and wake up to the beautiful sunrise over the cliffs.</p>
             </div>
-            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
-                <!-- Background Image -->
+
+            <div class="lg:w-3/5 relative overflow-hidden h-96 lg:h-auto order-first lg:order-none">
                 <img src="imgs/room-1.jpg"
                     alt="Resort Room"
-                    class="w-full h-auto object-cover" />
+                    class="w-full h-full object-cover" />
                 
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-brand-black via-brand-black/20 to-transparent"></div>
+                <!-- Gradient Overlay: Fades from bottom on mobile, from left on desktop. -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-black lg:bg-gradient-to-r"></div>
             </div>
+            
         </div>
-        <!-- right img -->
-        <div class="flex flex-col lg:flex-row w-full h-256">
-            <div class="lg:w-3/5 relative overflow-hidden flex items-stretch h-auto">
-                <!-- Background Image -->
+    
+        <div class="flex flex-col lg:flex-row w-full lg:h-128 bg-brand-black">
+            <div class="lg:w-3/5 relative overflow-hidden h-96 lg:h-auto">
                 <img src="imgs/bathroom.png"
-                alt="Resort Room"
-                class="w-full h-auto object-cover" />
+                    alt="Resort Bathroom"
+                    class="w-full h-full object-cover" />
                 
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-l from-brand-black via-brand-black/20 to-transparent"></div>
+                <!-- Gradient Overlay: Fades from bottom on mobile, from right on desktop. -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-black lg:bg-gradient-to-l"></div>
             </div>
-            <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full relative z-2 bg-brand-black">
+
+            <div class="lg:w-2/5 flex flex-col justify-center z-10 bg-brand-black gap-9 py-[3rem] px-[5rem]">
                 <h2>Sunset Serenity</h2>
                 <p>Enjoy the best bathroom experience in the world, where you can soak in a bathtub and watch the sunset paint the sky with beautiful colors. It’s the perfect way to relax and feel peaceful while taking in the view.</p>
             </div>

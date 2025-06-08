@@ -58,14 +58,13 @@ if(isset($_POST['form_identifier'])){
         <?php if($loginStatus[0]): ?>
         <div class="relative">
             <button id="myProfileBtn" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
-            <div id="menuMyProfile" class="profileInfo flex absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
+            <!-- MENU PROFILE IN LAPTOP -->
+            <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
                 <div class="flex justify-center items-center mb-2 gap-3">
                     <h3 class="text-[1.5rem] ">My Profile</h3>
-
                     <?php if($loginStatus[2]) : ?>
                     <p class="border-2 border-green-500 text-green-500 px-3 py-[0.25rem] text-[1rem] rounded-lg" >Admin</p>
                     <?php endif;?>
-                
                 </div>
                 <div class="descContainer flex flex-col gap-1">
                     <div class="row flex justify-between">
@@ -161,7 +160,7 @@ if(isset($_POST['form_identifier'])){
 </nav>
 
 <!-- POPUP MY PROFILE MOBILE -->
-<div id="myProfileMenuMobile" class="hidden fixed inset-0 z-30 flex items-center justify-center bg-brand-black/60 backdrop-blur-sm p-4">
+<div id="myProfileMenuMobile" class="hidden fixed inset-0 z-30 items-center justify-center bg-brand-black/60 backdrop-blur-sm p-4">
     <div id="innerProfileMenuMobile" class="relative w-full max-w-sm bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold p-6 shadow-2xl">
         <!-- Close Button -->
         <button id="closeProfileMenuMobileBtn" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
@@ -290,10 +289,12 @@ if(isset($_POST['form_identifier'])){
 
         const openMenu = () => {
             mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
         };
 
         const closeMenu = () => {
             mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
         };
 
         if (openBtn) {
