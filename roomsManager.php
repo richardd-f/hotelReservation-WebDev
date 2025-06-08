@@ -27,6 +27,29 @@
         if($status[0]){
             header("Location: roomsManager.php");
         }
+
+    }elseif ($identifier == 'delete_room') {
+        header('Content-Type: application/json');
+        try {
+            $roomId = isset($_POST['room_id']) ? (int)$_POST['room_id'] : 0;
+
+            if ($roomId > 0) {
+                $status = deleteRoom($roomId); 
+                if ($status[0]) {
+                    echo json_encode(['success' => true]);
+                } else {
+                    echo json_encode(['success' => false, 'message' => $status[1]]);
+                }
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Invalid Room ID provided.']);
+            }
+        } catch (Throwable $e) {
+            echo json_encode([
+                'success' => false, 
+                'message' => 'A server error occurred: ' . $e->getMessage()
+            ]);
+        }
+        exit(); 
     }
 }
 ?>
@@ -80,6 +103,7 @@
                         <h3 class="font-bold text-[2rem]">Rp <?= number_format($room['price'], 0, ',', '.') ?> </h3>
                         <button class="bg-brand-black px-4 py-1 text-brand-gold duration-200 border-2 border-brand-black hover:border-brand-gold rounded-lg w-3/5">Select </button>
                         <button room-id="<?= $room['id']?>" class="editBtn bg-brand-black px-4 py-1 text-brand-gold duration-200 border-2 border-brand-black hover:border-brand-gold rounded-lg w-3/5">Edit </button>
+                        <button room-id="<?= $room['id']?>"  class="deleteBtn bg-brand-black px-4 py-1 text-red-500 duration-200 border-2 border-brand-black hover:border-red-500 rounded-lg w-3/5">Delete </button>
                     </div>
                 </div>
             </div>
@@ -108,7 +132,7 @@
 
             <div id="editBedTypeBox" class="inputContainer mb-3 flex justify-between w-full items-center">
                 <label for="editBedType" class="text-[1.5rem]">Bed Type</label>
-                <select name="bed_type_id" id="editBedType" class="px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none">
+                <select name="bed_type_id" id="editBedType" class="px-3 w-[60%] h-[3rem] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none">
                     <option value="" disabled>Select a bed type</option>
                 </select>
             </div>
@@ -224,6 +248,46 @@
             console.error("Failed to parse bed types data for dropdown.", e);
         }
     }
+</script>
+
+<!-- SCRIPT FOR DELETE ROOMS -->
+<script>
+
+    $('.deleteBtn').click(function(e){
+        deleteButton = e.target;
+        roomId = deleteButton.getAttribute('room-id');
+        if (confirm(`Are you sure you want to delete room ID #${roomId}? This action cannot be undone.`)) {
+                        
+        const postData = new URLSearchParams();
+        postData.append('form_identifier', 'delete_room');
+        postData.append('room_id', roomId);
+
+        fetch('roomsManager.php', {
+            method: 'POST',
+            body: postData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert('Room deleted successfully!');
+                // Remove the room card from the page for a smooth UX
+                deleteButton.closest('.room').remove();
+            } else {
+                // Show the error message from the server
+                alert('Error: ' .concat(data.message || 'An unknown error occurred.'));
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            alert('A network error occurred. Please try again.');
+        });
+    }
+    });
 </script>
 
 </body>

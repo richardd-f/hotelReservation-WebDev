@@ -47,7 +47,7 @@ if(isset($_POST['form_identifier'])){
 
 <nav id="navBar" class="fixed select-none flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
     <div class="leftNav w-fit h-full flex justify-between items-center">
-        <svg id="Layer_1" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
+        <svg id="logoNavBar" onclick="window.location.href='index.php'" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
             <!-- <defs>
                 <style>
                 .cls-1 {
@@ -158,7 +158,7 @@ if(isset($_POST['form_identifier'])){
 
             <div id="bedTypeBox" class="inputContainer mb-3 flex justify-between w-full items-center">
                 <label for="bedType" class="text-[1.5rem]">Bed Type</label>
-                <select name="bed_type_id" id="bedType" class="px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none">
+                <select name="bed_type_id" id="bedType" class="px-3 w-[60%] bg-brand-black h-[3rem] hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none">
                     <option value="" disabled selected>Select a bed type</option>
                 </select>
             </div>
@@ -339,52 +339,21 @@ if(isset($_POST['form_identifier'])){
 <!-- =========================================================== -->
 
 <!-- ADD NEW ROOM SCRIPT -->
+
 <!-- VIEW LOGIC: ADD NEW ROOM-->
 <script>
-    // ADD NEW ROOM 
-    addNewRoomMenuIsOpen = false;
-    addNewRoomMenu = document.querySelector("#addNewRoomMenu");
-    classListAddNewRoom = addNewRoomMenu.classList;
+    // Wait for the HTML document to be fully loaded before running any code
+    document.addEventListener('DOMContentLoaded', function() {
 
-    $("#addNewRoomBtn").click(function(e){
-        e.stopPropagation();
-        if(addNewRoomMenuIsOpen){
-            closeAddNewRoomMenu();
-        }else{
-            populateBedTypeDropdown(); 
-            classListAddNewRoom.remove('hidden')
-            classListAddNewRoom.add('flex');
-            addNewRoomMenuIsOpen = true;
-        }
-    });
-
-    $("#innerAddNewRoom").click(function(e){
-        e.stopPropagation();
-    });
-
-    // $(document).click(function() {
-    //     closeAddNewRoomMenu();
-    // });
-
-    $("#cancelAddNewRoomBtn").click(function(){
-        closeAddNewRoomMenu();
-    });
-
-    function closeAddNewRoomMenu(){
-        classListAddNewRoom.add('hidden')
-        classListAddNewRoom.remove('flex'); // hide menu if open
-        addNewRoomMenuIsOpen = false;
-    }
-</script>
-<!-- POPULATE BED TYPES: [ADD NEW ROOMS] -->
-<script>
-    function populateBedTypeDropdown() {
-            // *** THIS IS THE FIX ***
-            // The data source is now correctly read from the 'addNewRoomMenu' div itself.
+        // --- 1. DEFINE THE FUNCTION FIRST ---
+        function populateBedTypeDropdown() {
+            console.log("ini adalah populatebedtype");
             const dataSourceElement = document.getElementById('addNewRoomMenu');
             const bedTypeSelect = document.getElementById('bedType');
             if (!dataSourceElement || !bedTypeSelect) return;
+
             const initialDataString = dataSourceElement.dataset.initialBedTypes;
+            console.log(initialDataString);
             try {
                 const bedTypes = JSON.parse(initialDataString || '[]');
                 while (bedTypeSelect.options.length > 1) bedTypeSelect.remove(1);
@@ -398,6 +367,42 @@ if(isset($_POST['form_identifier'])){
                 console.error("Failed to parse bed types data for dropdown.", e);
             }
         }
+
+        // --- 2. NOW SET UP THE EVENT LISTENERS ---
+        let addNewRoomMenuIsOpen = false;
+        const addNewRoomMenu = document.querySelector("#addNewRoomMenu");
+        // Add a safety check in case the menu element doesn't exist
+        if (addNewRoomMenu) {
+            const classListAddNewRoom = addNewRoomMenu.classList;
+
+            $("#addNewRoomBtn").click(function(e) {
+                e.stopPropagation();
+                if (addNewRoomMenuIsOpen) {
+                    closeAddNewRoomMenu();
+                } else {
+                    console.log("halo masuk ke else");
+                    populateBedTypeDropdown(); // Now this will work
+                    classListAddNewRoom.remove('hidden');
+                    classListAddNewRoom.add('flex');
+                    addNewRoomMenuIsOpen = true;
+                }
+            });
+
+            $("#innerAddNewRoom").click(function(e) {
+                e.stopPropagation();
+            });
+
+            $("#cancelAddNewRoomBtn").click(function() {
+                closeAddNewRoomMenu();
+            });
+
+            function closeAddNewRoomMenu() {
+                classListAddNewRoom.add('hidden');
+                classListAddNewRoom.remove('flex');
+                addNewRoomMenuIsOpen = false;
+            }
+        }
+    });
 </script>
 
 <!-- =========================================================== -->

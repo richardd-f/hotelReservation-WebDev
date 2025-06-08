@@ -142,6 +142,24 @@ function updateRoom($roomId, $roomType, $price, $bed_type_id, $facilities) {
     }
 }
 
+// DELETE ROOM
+function deleteRoom($roomId) {
+    $conn = createDB();
+    $stmt = $conn->prepare("DELETE FROM room_types WHERE room_type_id = ?");
+    $stmt->bind_param("i", $roomId);
+    
+    if ($stmt->execute() && $stmt->affected_rows > 0) {
+        $stmt->close();
+        $conn->close();
+        return [true, "Room deleted successfully."];
+    } else {
+        $error = $stmt->error;
+        $stmt->close();
+        $conn->close();
+        return [false, "Failed to delete room: " . $error];
+    }
+}
+
 // for prefilled type (manage bedtypes, and add new room)
 function getAllBedTypes(){
     $conn = createDB();

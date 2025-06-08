@@ -656,10 +656,6 @@ html {
   margin-bottom: 1.25rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -704,10 +700,6 @@ html {
   display: block;
 }
 
-.inline {
-  display: inline;
-}
-
 .flex {
   display: flex;
 }
@@ -732,10 +724,6 @@ html {
   height: 60%;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
 .h-5 {
   height: 1.25rem;
 }
@@ -746,6 +734,10 @@ html {
 
 .h-\[100\%\] {
   height: 100%;
+}
+
+.h-\[2rem\] {
+  height: 2rem;
 }
 
 .h-\[30rem\] {
@@ -789,6 +781,22 @@ html {
   height: 100%;
 }
 
+.h-\[2\.5rem\] {
+  height: 2.5rem;
+}
+
+.h-\[2\.8rem\] {
+  height: 2.8rem;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[3re\] {
+  height: 3re;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -807,10 +815,6 @@ html {
 
 .w-3\/5 {
   width: 60%;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .w-5 {
@@ -1160,6 +1164,10 @@ html {
   border-color: rgb(220 38 38 / var(--tw-border-opacity, 1));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
 .border-b-transparent {
   border-bottom-color: transparent;
 }
@@ -1390,6 +1398,11 @@ html {
   padding-bottom: 0.25rem;
 }
 
+.py-\[1rem\] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1461,10 +1474,6 @@ html {
   font-weight: 700;
 }
 
-.font-medium {
-  font-weight: 500;
-}
-
 .italic {
   font-style: italic;
 }
@@ -1534,11 +1543,6 @@ html {
   outline-width: 2px;
 }
 
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .drop-shadow-\[0_6px_10px_black\] {
   --tw-drop-shadow: drop-shadow(0 6px 10px black);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1557,14 +1561,6 @@ html {
   --tw-backdrop-blur: blur(4px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .transition-colors {
@@ -1798,12 +1794,21 @@ input[type=text]:focus, select:focus {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:border:hover {
+  border-width: 1px;
+}
+
 .hover\:border-brand-gold:hover {
   border-color: var(--brand-gold);
 }
 
 .hover\:border-brand-gold-light:hover {
   border-color: var(--brand-gold-light);
+}
+
+.hover\:border-red-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
 }
 
 .hover\:border-b-brand-gold:hover {
@@ -1830,11 +1835,6 @@ input[type=text]:focus, select:focus {
 
 .hover\:text-brand-gold:hover {
   color: var(--brand-gold);
-}
-
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:drop-shadow-\[0_0_15px_\#FFE374\]:hover {
