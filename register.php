@@ -93,8 +93,8 @@ if(isset($_POST["email"]) && $_POST["password"] && $_POST["confirmPassword"]){
                 </div>
 
                 <div class="btn-container flex flex-center">
-                    <button id="nextBtn" type="button" class="bg-brand-gold hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Next</button>
                     <button id="loginBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Login</button>
+                    <button id="nextBtn" type="button" class="bg-brand-gold hover:bg-brand-gold border-2 border-brand-gold  duration-200 text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Next</button>
                 </div>
             </form>
         </div>
@@ -124,6 +124,7 @@ if(isset($_POST["email"]) && $_POST["password"] && $_POST["confirmPassword"]){
                             $("#confirmPasswordBox").toggleClass("hidden");
                             $("#fullNameBox").toggleClass("hidden");
                             $("#fullNameBox").toggleClass("flex");
+                            $("#loginBtn").toggleClass("hidden");
                             $("#nextBtn").text('Sign Up');
                             $("#nextBtn").attr('type', 'submit');
                         }else{

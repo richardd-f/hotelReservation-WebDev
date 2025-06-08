@@ -1,3 +1,26 @@
+<?php 
+require_once "function/userInformation.php";
+
+if(isset($_POST['form_identifier'])){
+    $identifier = $_POST['form_identifier'];
+    if($identifier == 'update_user_information' && isset($loginStatus[1])){
+        $name = isset($_POST["name"]) ? $_POST["name"] : "";
+        $email = isset($_POST["email"]) ? $_POST["email"] : "";
+        $address = isset($_POST["address"]) ? $_POST["address"] : "";
+        $birthdate = isset($_POST["birthdate"]) ? $_POST["birthdate"] : "";
+        $gender = isset($_POST["gender"]) ? $_POST["gender"] : "";
+        $phone = isset($_POST["phone_number"]) ? $_POST["phone_number"] : "";
+        $status = saveUserInfo($loginStatus[1], $name, $email, $phone, $address, $birthdate, $gender);
+        if($status[0]){
+            echo "<script>window.alert('Data Updated!!')</script>";
+            header("Location: index.php");
+        }
+    }
+}
+
+
+?>
+
 <nav id="navBar" class="fixed select-none flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
     <div class="leftNav w-fit h-full flex justify-between items-center">
         <svg id="Layer_1" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
@@ -29,12 +52,21 @@
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[5rem]" href="">Facilities</a>
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[8rem]"  href="">Places nearby</a>
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[5rem]"  href="index.php#aboutUs">About us</a>
-        
+        <?php if($loginStatus[2]):?>
+        <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[7.5rem]"  href="webManager.php">Web Manager</a>
+        <?php endif;?>
         <?php if($loginStatus[0]): ?>
         <div class="relative">
             <button id="myProfileBtn" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
-            <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[18rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
-                <h3 class="text-[1.5rem] mb-2">My Profile</h3>
+            <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
+                <div class="flex justify-center items-center mb-2 gap-3">
+                    <h3 class="text-[1.5rem] ">My Profile</h3>
+
+                    <?php if($loginStatus[2]) : ?>
+                    <p class="border-2 border-green-500 text-green-500 px-3 py-[0.25rem] text-[1rem] rounded-lg" >Admin</p>
+                    <?php endif;?>
+                
+                </div>
                 <div class="descContainer flex flex-col gap-1">
                     <div class="row flex justify-between">
                         <p class="text-[1rem] ">Name</p>
@@ -43,6 +75,10 @@
                     <div class="row flex justify-between">
                         <p class="text-[1rem] ">Email</p>
                         <p class="text-[1rem] "><?= isset($userInfo["email"]) ? $userInfo["email"] : ""?></p>
+                    </div>
+                    <div class="row flex justify-between">
+                        <p class="text-[1rem] ">Phone</p>
+                        <p class="text-[1rem] "><?= isset($userInfo["phone_number"]) ? $userInfo["phone_number"] : ""?></p>
                     </div>
                     <div class="row flex justify-between">
                         <p class="text-[1rem] ">Address</p>
@@ -76,38 +112,44 @@
 </nav>
 <!-- POP UP MENU FOR UPDATE USER INFORMATION -->
     <div id="editProfileMenu" class="editProfileInfo hidden fixed w-dvw h-dvh top-0 left-0 z-30 items-center justify-center bg-brand-black/40 backdrop-blur-sm">
-        <div id="innerProfileMenu" class="w-[45rem] h-[30rem] bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">
+        <form method="post" id="innerProfileMenu" class="w-[45rem] h-[30rem] bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">
+            <input type="hidden" name="form_identifier" value="update_user_information">
             <h3 class="text-center mb-4 text-[2.5rem]">Update Profile</h3>
             
             <div id="nameBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="name" class="text-[1.5rem]">Name</label>
-                <input id="name" value="<?= isset($userInfo["name"]) ? $userInfo["name"] : ""?>" placeholder="enter your name here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input name="name" type="text" id="name" value="<?= isset($userInfo["name"]) ? $userInfo["name"] : ""?>" placeholder="enter your name here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" >
             </div>
             <div id="emailBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="email" class="text-[1.5rem]">Email</label>
-                <input  id="email" value="<?= isset($userInfo["email"]) ? $userInfo["email"] : ""?>" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input name="email" type="email" id="email" value="<?= isset($userInfo["email"]) ? $userInfo["email"] : ""?>" placeholder="enter your email here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" >
             </div>
             <div id="phoneBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="phoneNumber" class="text-[1.5rem]">Phone Number</label>
-                <input id="phoneNumber" value="<?= isset($userInfo["phone_number"]) ? $userInfo["phone_number"] : ""?>" type="number" placeholder="enter your phone number here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input name="phone_number" type="number" id="phoneNumber" value="<?= isset($userInfo["phone_number"]) ? $userInfo["phone_number"] : ""?>" type="number" placeholder="enter your phone number here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" >
             </div>
             <div id="addressBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="address" class="text-[1.5rem]">Address</label>
-                <input  id="address" value="<?= isset($userInfo["address"]) ? $userInfo["address"] : ""?>" placeholder="enter your address here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input name="address" type="text"  id="address" value="<?= isset($userInfo["address"]) ? $userInfo["address"] : ""?>" placeholder="enter your address here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" >
             </div>
             <div id="birthdateBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="birthdate" class="text-[1.5rem]">Birthdate</label>
-                <input  id="birthdate" value="<?= isset($userInfo["birthdate"]) ? $userInfo["birthdate"] : ""?>" placeholder="enter your birthdate here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <input name="birthdate" type="date"  id="birthdate" value="<?= isset($userInfo["birthdate"]) ? $userInfo["birthdate"] : ""?>" placeholder="enter your birthdate here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" >
             </div>
             <div id="genderBox" class="inputContainer mb-3 flex justify-between w-full text-[1rem]">
                 <label for="gender" class="text-[1.5rem]">Gender</label>
-                <input  id="gender" value="<?= isset($userInfo["gender"]) ? $userInfo["gender"] : ""?>" placeholder="enter your gender here" class=" placeholder:text-gray-500 px-3 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem] focus:outline-none" name="email" type="email">
+                <div class="radioContainer flex justify-left items-center w-[60%]">
+                    <input name="gender" type="radio" value="MALE" id="genderMale" class="mr-1 focus:outline-none" <?= isset($userInfo["gender"]) ? $userInfo["gender"]=="MALE" ? "checked" : "" : ""?>>
+                    <label for="genderMale">Male</label>
+                    <input name="gender" type="radio" value="FEMALE" id="genderFemale" class="mr-1 ml-5 focus:outline-none" <?= isset($userInfo["gender"]) ? $userInfo["gender"]=="FEMALE" ? "checked" : "" : ""?>>
+                    <label for="genderFemale">Female</label>
+                </div>
             </div>
             <div class="row flex justify-evenly mt-4 ">
-                <button id="cancelBtn" class=" duration-200 text-[1.3rem] border-2 border-red-600 px-6 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>
-                <button class=" duration-200 text-[1.3rem] border-2 border-brand-gold px-6 py-1 rounded-lg text-brand-gold hover:bg-brand-gold hover:text-brand-black">Save</button>
+                <button id="cancelBtn" type="button" class=" duration-200 text-[1.3rem] border-2 border-red-600 px-6 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>
+                <button id="saveBtn" type="submit" class=" duration-200 text-[1.3rem] border-2 border-brand-gold px-6 py-1 rounded-lg text-brand-gold hover:bg-brand-gold hover:text-brand-black">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 
 <script>

@@ -1,7 +1,7 @@
 <?php 
     require_once "function/loginRegister.php";
     $loginStatus = checkLogin();
-    if(!$loginStatus){
+    if(!$loginStatus[0]){
         header("Location: login.php");
     }
 ?>

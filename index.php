@@ -6,14 +6,8 @@
         logout();
         header("Location: index.php");
     }
-    $loginStatus = checkLogin();
     
-    if($loginStatus){
-        $getStatus = getUserInformation($loginStatus[1]); //index 0 boolean, index 1 = user_id
-        if($getStatus){
-            $userInfo = $getStatus[1];
-        }
-    }
+
 
 ?>
 

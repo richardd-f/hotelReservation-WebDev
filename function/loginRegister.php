@@ -7,7 +7,7 @@ function register($email, $password, $fullName){
     $conn = createDB();
     
     // check is already added
-    $stmt = $conn->prepare("SELECT email FROM user WHERE email = ?");
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -38,7 +38,7 @@ function register($email, $password, $fullName){
 // Connect to DB and check credentials
 function login($email, $password, $remember = false){
     $conn = createDB();
-    $stmt = $conn->prepare("SELECT user_id, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT user_id, password, isAdmin FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -48,6 +48,7 @@ function login($email, $password, $remember = false){
             // Set session
             $_SESSION["user_id"] = $user["user_id"];
             $_SESSION["email"] = $email;
+            $_SESSION["isAdmin"] = $user["isAdmin"];
 
             if ($remember) {
                 // Generate a secure random token
@@ -74,13 +75,13 @@ function login($email, $password, $remember = false){
 
 function checkLogin(){
     if(isset($_SESSION['user_id']) && isset($_SESSION['email'])){
-        return [true,$_SESSION['user_id']];
+        return [true,$_SESSION['user_id'], $_SESSION["isAdmin"]];
     }else{
         // check cookie
         if(isset($_COOKIE["rememberme"])){
             $token = $_COOKIE["rememberme"];
             $conn = createDB();
-            $stmt = $conn->prepare("SELECT user_id, email FROM users WHERE login_token = ?");
+            $stmt = $conn->prepare("SELECT user_id, email, isAdmin FROM users WHERE login_token = ?");
             $stmt->bind_param("s",$token);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -88,20 +89,19 @@ function checkLogin(){
             if($row = $result->fetch_assoc()){
                 $_SESSION["user_id"] = $row["user_id"];
                 $_SESSION["email"] = $row["email"];
-                return [true, $_SESSION["user_id"]];
-            }else{
-                // not logged in
-                return [false,""];
+                $_SESSION["isAdmin"] = $row["isAdmin"];
+                return [true, $_SESSION["user_id"], $row['isAdmin']];
             }
         };
     }
-    return false;
+    return [false, "", false];
 }
 
 function logout(){
     session_destroy();
     unset($_SESSION["user_id"]);
     unset($_SESSION["email"]);
+    unset($_SESSION["isAdmin"]);
     setcookie("rememberme", "", time()-3600, "/", "", true, true);
 }
 

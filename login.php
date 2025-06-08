@@ -73,8 +73,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                 </div>
 
                 <div class="btnContainer flex flex-center items-center mt-2">
-                    <button id="loginBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold bg-brand-gold text-brand-black duration-200 hover:scale-[1.01]    active:scale-[0.98] hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Login</button>
                     <button id="signUpBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold  text-brand-gold duration-200 hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Sign Up</button>
+                    <button id="loginBtn" type="button" class="bg-brand-black hover:bg-brand-gold border-2 border-brand-gold bg-brand-gold text-brand-black duration-200 hover:scale-[1.01]    active:scale-[0.98] hover:text-brand-black px-10 py-1 rounded-full text-[1rem] m-auto">Login</button>
                 </div>
             </form>
         </div>
