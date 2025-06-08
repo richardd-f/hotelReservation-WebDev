@@ -1,4 +1,4 @@
-<footer class="border-t-2 border-t-[#383838] pb-4 px-8 md:px-[5rem] bg-brand-black relative z-2">
+<footer class="border-t-2 border-t-[#383838] mt-5 pb-4 px-8 md:px-[5rem] bg-brand-black relative z-2">
     <div class="footerTop flex justify-evenly flex-col lg:flex-row w-full">
         <div class="ftLeft w-2/5 content-center">
             <!-- LOGO -->

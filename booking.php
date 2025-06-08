@@ -30,7 +30,7 @@
     
     <!-- Choose Your Room -->
     <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black/80 backdrop-blur-sm rounded-[2rem]">
-        <h2 class="self-center text-[3rem] mb-5">Choose Your Room</h2>
+        <h2 class="self-center text-[3rem] mb-[2.5rem] font-bold">Choose Your Room</h2>
         <!-- Room Card -->
         <?php foreach ($allRoomsData as $room) : ?>
             <div class="room bg-brand-purple p-3 mb-5 w-[40rem]">

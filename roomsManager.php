@@ -68,7 +68,7 @@
     
     <!-- Rooms Container -->
     <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black/80 backdrop-blur-sm rounded-[2rem]">
-        <h2 class="self-center text-[3rem] mb-5">Rooms Manager</h2>
+        <h2 class="self-center text-[3rem] mb-[2.5rem] font-bold">Rooms Manager</h2>
         
         <!-- Room Card -->
         <?php foreach ($allRoomsData as $room) : ?>

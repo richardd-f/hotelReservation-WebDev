@@ -6,9 +6,6 @@
         logout();
         header("Location: index.php");
     }
-    
-
-
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +126,7 @@
     <main class="block max-w-7xl m-auto">
         
         <!-- OUR SERVICE -->
-        <div class="flex-center flex-col section-pad relative z-2 bg-brand-black">
+        <div id="ourServices" class="flex-center flex-col section-pad relative z-2 bg-brand-black">
             <h2 class="self-center">Our Services</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[30rem]">
                 
@@ -182,7 +179,7 @@
 
         <!-- SHOW OFF ROOM -->
          <!-- left img -->
-        <div class="flex flex-col lg:flex-row w-full h-256 relative z-2">
+        <div id="ourRooms" class="flex flex-col lg:flex-row w-full h-256 relative z-2">
             <div class="lg:w-2/5 flex flex-col justify-center z-10 section-pad h-full bg-brand-black">
                 <h2>Cozy Rooms</h2>
                 <p>Sleep comfortably in a cozy, nice room with a stunning view of the mountain cliff right outside your window. Feel the fresh air and peaceful calm all around as you rest, and wake up to the beautiful sunrise over the cliffs.</p>
@@ -218,7 +215,7 @@
 
         <!-- INTRODUCE  -->
         <section>
-            <div id="aboutUs" class="flex-center flex-col section-pad relative z-2 bg-brand-black/75">
+            <div id="aboutUs" class="flex-center flex-col section-pad relative z-2 bg-brand-black/75 rounded-b-[2rem]">
                 <h1>Who Are We</h1>
                 <p>Grandia Resort in Batu, East Java, Indonesia, offers more than just the best rest — it’s a place where you can truly feel Indonesian culture. Every Saturday, the hotel hosts special events celebrating local traditions, making your stay unforgettable. Our spacious rooms blend modern comfort with traditional charm, providing a peaceful retreat after a day of exploring. Enjoy the refreshing mountain air while relaxing by our infinity pool or unwind in the serene spa offering traditional treatments. For the active traveler, we offer guided hiking tours, cultural workshops, and yoga sessions overlooking breathtaking cliff views. Plus, our top chefs serve delicious dishes that bring the best taste in every bite. With personalized service and stunning natural surroundings, Grandia Resort promises a unique and memorable experience you won’t find anywhere else.</p>
             </div>

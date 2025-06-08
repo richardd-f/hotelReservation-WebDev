@@ -21,7 +21,7 @@ if(isset($_POST['form_identifier'])){
 
 ?>
 
-<nav id="navBar" class="fixed pt-5 md:pt-0 select-none flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[8rem] md:h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
+<nav id="navBar" class="fixed select-none flex bg-gradient-to-b duration-1000 transition-transform ease-in-out from-brand-black via-brand-black/90 to-transparent h-[6rem] w-full z-20 top-0 left-0 px-[10%]">
     <div class="leftNav w-fit h-full flex justify-between items-center">
         <svg id="logoNavBar" onclick="window.location.href='index.php'" class="fill-brand-gold aspect-square h-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 779.83 468.89">
                 <!-- <defs>
@@ -48,17 +48,14 @@ if(isset($_POST['form_identifier'])){
                 <path class="cls-1" d="M328.68,459.87s8.43,9.02,21.36,9.02,20.34-8.85,20.34-14.81-2.89-14.81-17.87-17.7-15.66-14.13-2.98-14.13c0,0,6.13-.94,12.51,5.02l6.21-7.32s-8.26-6.98-18.72-6.98-19.15,7.83-19.15,15.57,1.87,13.45,16.77,16.6,18.72,12,2.89,14.47c0,0-10.98.17-15.74-7.06l-5.62,7.32Z"/>
             </svg>
     </div>
-    <div class="rightNav hidden md:flex w-full text-white justify-end items-center gap-5 text-center">
-        <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[5rem]" href="index.php#ourServices">Services</a>
-        <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[4rem]"  href="index.php#ourRooms">Rooms</a>
-        <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[5rem]"  href="index.php#aboutUs">About us</a>
+    <div class="rightNav w-full text-white flex justify-end items-center gap-5 text-center">
         <?php if($loginStatus[2]):?>
         <a class="text-lg border-b-2 border-b-transparent hover:border-b-brand-gold hover:text-brand-gold mr-4 w-[7.5rem]"  href="webManager.php">Web Manager</a>
         <?php endif;?>
         <?php if($loginStatus[0]): ?>
         <div class="relative">
             <button id="myProfileBtn" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
-            <div id="menuMyProfile" class="profileInfo flex absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
+            <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
                 <div class="flex justify-center items-center mb-2 gap-3">
                     <h3 class="text-[1.5rem] ">My Profile</h3>
 
@@ -109,255 +106,7 @@ if(isset($_POST['form_identifier'])){
         <?php endif;?>
 
     </div>
-    <!-- NAVBAR MENU MOBILE VIEW -->
-    <div class="rightNav md:hidden w-full flex justify-end">
-        <!-- menu nav logo button 3 strips -->
-        <svg id="openNavBtn" class="stroke-current aspect-square text-brand-gold w-[3.5rem]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 6H20M4 12H20M4 18H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-
-        <!-- NAV MENU -->
-        <div id="navMenu" class="fixed w-dvw left-0 top-0 bg-brand-black flex flex-col text-[10rem] px-14 py-10 gap-5">
-            <!-- close nav button -->
-            <svg id="closeNavBtn" class="fill-current text-brand-gold aspect-square w-10 absolute top-[3.5rem] right-[3.9rem]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                viewBox="0 0 460.775 460.775" xml:space="preserve">
-                <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
-                c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55
-                c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505
-                c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55
-                l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
-                c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
-            </svg>
-            <a class="text-[2rem]" href="">Services</a>
-            <a class="text-[2rem]" href="">Rooms</a>
-            <a class="text-[2rem]" href="">About Us</a>
-            
-            <?php if($loginStatus[2]):?>
-                <a class="text-[2rem]" href="webManager.php">Web Manager</a>
-            <?php endif;?>
-
-            <?php if($loginStatus[0]): ?>
-                <button id="openProfileMenuMobileBtn" class="text-[2rem] text-left text-brand-gold">My Profile</button>
-            <?php else:?>
-                <button onclick="window.location.href='login.php'" class="text-[2rem] text-left text-brand-gold">Login</button>
-                <button onclick="window.location.href='register.php'" class="text-[2rem] text-left text-brand-gold">Register</button>
-            <?php endif;?>
-        </div>
-        <!-- script for nav menu -->
-        <script>
-            $('#navMenu').hide();
-            $('#closeNavBtn').click(function(){
-                $('#navMenu').slideToggle(300);
-            });
-
-            $('#openNavBtn').click(function(){
-                $('#navMenu').slideToggle(300);
-            })
-
-        </script>
-
-    </div>
-
 </nav>
-
-<!-- POPUP MY PROFILE MOBILE -->
-<div id="myProfileMenuMobile" class="hidden fixed inset-0 z-30 flex items-center justify-center bg-brand-black/60 backdrop-blur-sm p-4">
-    <div id="innerProfileMenuMobile" class="relative w-full max-w-sm bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold p-6 shadow-2xl">
-        <!-- Close Button -->
-        <button id="closeProfileMenuMobileBtn" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-
-        <div class="flex flex-col items-center mb-6">
-            <h3 class="text-2xl font-bold">My Profile</h3>
-            <?php if(isset($loginStatus) && $loginStatus[2]) : ?>
-                <p class="mt-2 text-sm border border-green-500 text-green-500 px-3 py-1 rounded-full">Admin</p>
-            <?php endif; ?>
-        </div>
-
-        <!-- User Info Section -->
-        <div class="descContainer flex flex-col gap-4 text-base">
-            
-            <div class="row">
-                <p class="text-sm text-gray-400">Name</p>
-                <p class="font-semibold"><?= isset($userInfo["name"]) ? htmlspecialchars($userInfo["name"]) : "Not Set"?></p>
-            </div>
-
-            <div class="row">
-                <p class="text-sm text-gray-400">Email</p>
-                <p class="font-semibold"><?= isset($userInfo["email"]) ? htmlspecialchars($userInfo["email"]) : "Not Set"?></p>
-            </div>
-            
-            <div class="row">
-                <p class="text-sm text-gray-400">Phone</p>
-                <p class="font-semibold"><?= isset($userInfo["phone_number"]) ? htmlspecialchars($userInfo["phone_number"]) : "Not Set"?></p>
-            </div>
-            
-            <div class="row">
-                <p class="text-sm text-gray-400">Address</p>
-                <p class="font-semibold"><?= isset($userInfo["address"]) ? htmlspecialchars($userInfo["address"]) : "Not Set"?></p>
-            </div>
-            
-            <div class="row">
-                <p class="text-sm text-gray-400">Birthdate</p>
-                <p class="font-semibold"><?= isset($userInfo["birthdate"]) ? htmlspecialchars($userInfo["birthdate"]) : "Not Set"?></p>
-            </div>
-            
-            <div class="row">
-                <p class="text-sm text-gray-400">Gender</p>
-                <p class="font-semibold"><?= isset($userInfo["gender"]) ? htmlspecialchars($userInfo["gender"]) : "Not Set"?></p>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-3 mt-8">
-            <button id="openEditProfileMenuBtn" class="w-full duration-200 text-lg border-2 border-brand-gold px-4 py-2 rounded-lg text-brand-gold hover:bg-brand-gold hover:text-brand-black">Edit Info</button>
-            <button onclick="window.location.href='index.php?logout=true'" class="w-full duration-200 text-lg border-2 border-red-600 px-4 py-2 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Logout</button>
-        </div>
-    </div>
-</div>
-
-<!-- EDIT MY PROFILE MOBILE VIEW -->
-<div id="editProfileMenuMobile" class="hidden fixed inset-0 z-30 items-center justify-center bg-brand-black/60 backdrop-blur-sm p-4">
-    <form method="post" id="innerEditProfileMenuMobile" class="relative w-full max-w-sm bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold p-6 shadow-2xl">
-        <input type="hidden" name="form_identifier" value="update_user_information">
-
-        <button id="closeEditProfileMenuBtn" type="button" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-
-        <div class="text-center mb-6">
-            <h3 class="text-2xl font-bold">Update Profile</h3>
-        </div>
-
-        <div class="flex flex-col gap-4">
-            <div>
-                <label for="nameMobile" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                <input name="name" type="text" id="nameMobile" value="<?= isset($userInfo["name"]) ? htmlspecialchars($userInfo["name"]) : ""?>" placeholder="Your full name" class="w-full bg-brand-black text-brand-gold placeholder:text-gray-500 px-3 py-2 rounded-lg border-2 border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/50">
-            </div>
-
-            <div>
-                <label for="emailMobile" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                <input name="email" type="email" id="emailMobile" value="<?= isset($userInfo["email"]) ? htmlspecialchars($userInfo["email"]) : ""?>" placeholder="your.email@example.com" class="w-full bg-brand-black text-brand-gold placeholder:text-gray-500 px-3 py-2 rounded-lg border-2 border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/50">
-            </div>
-            
-            <div>
-                <label for="phoneMobile" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
-                <input name="phone_number" type="tel" id="phoneMobile" value="<?= isset($userInfo["phone_number"]) ? htmlspecialchars($userInfo["phone_number"]) : ""?>" placeholder="Your phone number" class="w-full bg-brand-black text-brand-gold placeholder:text-gray-500 px-3 py-2 rounded-lg border-2 border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/50">
-            </div>
-
-            <div>
-                <label for="addressMobile" class="block text-sm font-medium text-gray-300 mb-1">Address</label>
-                <input name="address" type="text" id="addressMobile" value="<?= isset($userInfo["address"]) ? htmlspecialchars($userInfo["address"]) : ""?>" placeholder="Your address" class="w-full bg-brand-black text-brand-gold placeholder:text-gray-500 px-3 py-2 rounded-lg border-2 border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/50">
-            </div>
-
-            <div>
-                <label for="birthdateMobile" class="block text-sm font-medium text-gray-300 mb-1">Birthdate</label>
-                <input name="birthdate" type="date" id="birthdateMobile" value="<?= isset($userInfo["birthdate"]) ? htmlspecialchars($userInfo["birthdate"]) : ""?>" class="w-full bg-brand-black text-brand-gold px-3 py-2 rounded-lg border-2 border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/50">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Gender</label>
-                <div class="flex items-center gap-6">
-                    <label for="genderMaleMobile" class="flex items-center cursor-pointer">
-                        <input name="gender" type="radio" value="MALE" id="genderMaleMobile" class="h-4 w-4 mr-2" <?= (isset($userInfo["gender"]) && $userInfo["gender"] == "MALE") ? "checked" : "" ?>>
-                        <span>Male</span>
-                    </label>
-                    <label for="genderFemaleMobile" class="flex items-center cursor-pointer">
-                        <input name="gender" type="radio" value="FEMALE" id="genderFemaleMobile" class="h-4 w-4 mr-2" <?= (isset($userInfo["gender"]) && $userInfo["gender"] == "FEMALE") ? "checked" : "" ?>>
-                        <span>Female</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-3 mt-8">
-            <button id="saveBtnMobile" type="submit" class="w-full duration-200 text-lg border-2 border-brand-gold px-4 py-2 rounded-lg text-brand-gold bg-brand-black text-brand-black font-bold hover:bg-opacity-90">Save Changes</button>
-            <button id="cancelBtnMobile" type="button" class="w-full duration-200 text-lg border-2 border-red-600 px-4 py-2 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>
-        </div>
-    </form>
-</div>
-
-<!-- SCRIPT FOR POPUP MY PROFILE MOBILE -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenu = document.getElementById('myProfileMenuMobile');
-        const openBtn = document.getElementById('openProfileMenuMobileBtn');
-        const closeBtn = document.getElementById('closeProfileMenuMobileBtn');
-
-        const openMenu = () => {
-            mobileMenu.classList.remove('hidden');
-        };
-
-        const closeMenu = () => {
-            mobileMenu.classList.add('hidden');
-        };
-
-        if (openBtn) {
-            openBtn.addEventListener('click', openMenu);
-        }
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeMenu);
-        }
-
-        if (mobileMenu) {
-            mobileMenu.addEventListener('click', function(event) {
-                // Check if the click was on the backdrop itself, not on the inner content
-                if (event.target === mobileMenu) {
-                    closeMenu();
-                }
-            });
-        }
-    });
-</script>
-<!-- SCRIPT FOR POPUP EDIT MY PROFILE MOBILE -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const editMenuMobile = document.getElementById('editProfileMenuMobile');
-        const openBtn = document.getElementById('openEditProfileMenuBtn');
-        const closeBtn = document.getElementById('closeEditProfileMenuBtn');
-        const cancelBtn = document.getElementById('cancelBtnMobile');
-        const myProfileMenuCloseBtn = document.getElementById('closeProfileMenuMobileBtn');
-
-        const openMenu = () => {
-            if(editMenuMobile) {
-                myProfileMenuCloseBtn.click();
-                editMenuMobile.classList.remove('hidden');
-                editMenuMobile.classList.add('flex');
-            }
-        };
-
-        const closeMenu = () => {
-            if(editMenuMobile) {
-                editMenuMobile.classList.add('hidden');
-                editMenuMobile.classList.remove('flex');
-            }
-        };
-
-        if (openBtn) openBtn.addEventListener('click', openMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-        if (cancelBtn) cancelBtn.addEventListener('click', closeMenu);
-        
-        const editProfileDesktopBtn = document.getElementById('editProfileBtn');
-        if (editProfileDesktopBtn) {
-                editProfileDesktopBtn.addEventListener('click', openMenu);
-        }
-
-        if (editMenuMobile) {
-            editMenuMobile.addEventListener('click', function(event) {
-                if (event.target === editMenuMobile) {
-                    closeMenu();
-                }
-            });
-        }
-    });
-</script>
-
-
-
 <!-- POP UP MENU FOR UPDATE USER INFORMATION -->
     <div id="editProfileMenu" class="editProfileInfo hidden fixed w-dvw h-dvh top-0 left-0 z-30 items-center justify-center bg-brand-black/40 backdrop-blur-sm">
         <form method="post" id="innerProfileMenu" class="w-[45rem] h-[30rem] bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">

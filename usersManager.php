@@ -21,7 +21,7 @@ $allUserData = getAllUserData();
 <body class="w-full min-h-screen relative select-none">
     
     <section id="hero" class="absolute top-0 left-0 -z-1 h-dvh overflow-hidden">
-        <?php require_once("php/header2.php") ?>
+        <?php require_once("php/header_admin.php") ?>
         <img class=" fixed top-0 left-0 w-full h-full object-cover opacity-60" style="" src="imgs/hero-landing.webp" alt="">    
     </section>
     
