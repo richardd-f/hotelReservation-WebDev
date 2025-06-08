@@ -12,6 +12,23 @@
             header("Location: index.php");
         }
     }
+
+    if(isset($_POST['form_identifier'])){
+    $identifier = $_POST['form_identifier'];
+    if($identifier == 'edit_existing_room'){
+        $roomId = isset($_POST["room_id"]) ? $_POST["room_id"] : "";
+        $roomType = isset($_POST["roomType"]) ? $_POST["roomType"] : "";
+        $price = isset($_POST["price"]) ? $_POST["price"] : "";
+        $bed_type_id = isset($_POST["bed_type_id"]) ? $_POST["bed_type_id"] : "";
+        $facilities = isset($_POST["facilities"]) ? $_POST["facilities"] : "";
+        // echo $roomId . "\n". $roomType."\n". $price."\n". $bed_type_id."\n". $facilities;
+        // die();
+        $status = updateRoom($roomId, $roomType, $price, $bed_type_id, json_decode($facilities, true));
+        if($status[0]){
+            header("Location: roomsManager.php");
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +70,7 @@
                             
                             <!-- Loop through and display each facility -->
                             <?php foreach ($room['facilities'] as $facility) : ?>
-                                <li><?= htmlspecialchars($facility) ?></li>
+                                <li><?= htmlspecialchars($facility["name"]) ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -151,13 +168,14 @@
         
         // Populate the bed type dropdown and set its value
         populateBedTypeDropdown('editBedType', roomData.bed_type_id);
-        console.log("roomdata.bedtype_id : "+roomData.bed_type_id);
-        console.log(roomData);
         
         // Populate the facility manager
         const facilityComponent = document.getElementById('editFacilityInputComponent');
         // Set the initial data for the facility manager...
         facilityComponent.dataset.initialFacilities = JSON.stringify(roomData.facilities);
+        
+        console.log(roomData.facilities);
+        
         // ...then initialize it to draw the tags.
         editFacilityManager.initialize();
     }
