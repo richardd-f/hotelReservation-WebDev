@@ -17,11 +17,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style/output.css" rel="stylesheet" />
     <link rel="icon" href="imgs/logo/logo-grandia.svg" type="image">
-    <title>Grandia Resort</title>
+    <title>Booking Room</title>
     <script src="script/jquery.js"></script>
 </head>
 
-<body class="w-full relative">
+<body class="w-full relative select-none">
     
     <section id="hero" class="absolute top-0 left-0 -z-1 h-dvh overflow-hidden">
         <?php require_once("php/header2.php") ?>
@@ -29,7 +29,7 @@
     </section>
     
     <!-- Choose Your Room -->
-    <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black">
+    <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black/80 backdrop-blur-sm rounded-[2rem]">
         <h2 class="self-center text-[3rem] mb-5">Choose Your Room</h2>
         <!-- Room Card -->
         <?php foreach ($allRoomsData as $room) : ?>

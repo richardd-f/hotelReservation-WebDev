@@ -5,13 +5,7 @@
     $allRoomsData = getAllRooms();
     
     $loginStatus = checkLogin();
-    if(!$loginStatus[0]){
-        header("Location: login.php");
-    }else{
-        if(!$loginStatus[2]){
-            header("Location: index.php");
-        }
-    }
+    kickIfNotAdmin();
 
     if(isset($_POST['form_identifier'])){
     $identifier = $_POST['form_identifier'];
@@ -73,7 +67,7 @@
     </section>
     
     <!-- Rooms Container -->
-    <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black">
+    <div class="max-w-[60rem] m-auto mt-[6rem] p-10 flex-center flex-col relative z-2 bg-brand-black/80 backdrop-blur-sm rounded-[2rem]">
         <h2 class="self-center text-[3rem] mb-5">Rooms Manager</h2>
         
         <!-- Room Card -->

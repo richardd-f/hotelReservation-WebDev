@@ -48,7 +48,6 @@ function login($email, $password, $remember = false){
             // Set session
             $_SESSION["user_id"] = $user["user_id"];
             $_SESSION["email"] = $email;
-            $_SESSION["isAdmin"] = $user["isAdmin"];
 
             if ($remember) {
                 // Generate a secure random token
@@ -75,7 +74,15 @@ function login($email, $password, $remember = false){
 
 function checkLogin(){
     if(isset($_SESSION['user_id']) && isset($_SESSION['email'])){
-        return [true,$_SESSION['user_id'], $_SESSION["isAdmin"]];
+        $conn = createDB();
+        $stmt = $conn->prepare("SELECT isAdmin FROM users WHERE user_id = ?");
+        $stmt->bind_param("i",$_SESSION['user_id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        if($row = $result->fetch_assoc()){
+            return [true, $_SESSION["user_id"], $row['isAdmin']];
+        }
     }else{
         // check cookie
         if(isset($_COOKIE["rememberme"])){
@@ -89,13 +96,24 @@ function checkLogin(){
             if($row = $result->fetch_assoc()){
                 $_SESSION["user_id"] = $row["user_id"];
                 $_SESSION["email"] = $row["email"];
-                $_SESSION["isAdmin"] = $row["isAdmin"];
                 return [true, $_SESSION["user_id"], $row['isAdmin']];
             }
         };
     }
     return [false, "", false];
 }
+
+function kickIfNotAdmin(){
+    $loginStatus = checkLogin();
+    if(!$loginStatus[0]){
+        header("Location: login.php");
+    }else{
+        if(!$loginStatus[2]){
+            header("Location: index.php");
+        }
+    }
+}
+
 
 function logout(){
     session_destroy();
