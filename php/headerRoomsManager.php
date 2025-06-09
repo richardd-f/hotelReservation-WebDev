@@ -240,7 +240,10 @@ if(isset($_POST['form_identifier'])){
                 </div>
                 <input type="hidden" id="bedTypesInputResult" name="bedTypes">
                 <p class="text-sm text-gray-400 pl-[30%] md:pl-[40%] mt-2 -mb-1">Click a tag's text to edit.</p>
-                <div id="bedTypeTagsContainer" class="flex flex-wrap gap-2 pl-[30%] md:pl-[40%] mt-2"></div>
+
+                <div id="bedTypeTagsContainer" class="flex flex-wrap gap-2 pl-[30%] md:pl-[40%] mt-2">
+                    
+                </div>
             </div>
             <div class="row flex justify-evenly mt-7 ">
                 <button id="cancelManageBedTypesBtn" type="button" class=" duration-200 text-[1.3rem] border-2 border-red-600 px-6 py-1 rounded-lg text-red-600 hover:bg-red-600 hover:text-brand-black">Cancel</button>

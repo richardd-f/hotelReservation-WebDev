@@ -130,9 +130,9 @@ if(isset($_POST['form_identifier'])){
                 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
                 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
             </svg>
-            <a class="text-[2rem]" href="">Services</a>
-            <a class="text-[2rem]" href="">Rooms</a>
-            <a class="text-[2rem]" href="">About Us</a>
+            <a class="text-[2rem]" href="index.php#ourServices">Services</a>
+            <a class="text-[2rem]" href="index.php#ourRooms">Rooms</a>
+            <a class="text-[2rem]" href="index.php#aboutUs">About Us</a>
             
             <?php if($loginStatus[2]):?>
                 <a class="text-[2rem]" href="webManager.php">Web Manager</a>
