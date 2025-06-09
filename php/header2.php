@@ -58,6 +58,7 @@ if(isset($_POST['form_identifier'])){
         <?php if($loginStatus[0]): ?>
         <div class="relative">
             <button id="myProfileBtn" class="border-2 border-brand-gold px-4 py-1 rounded-md text-brand-gold text-[1rem]">My Profile</button>
+            
             <!-- MENU PROFILE IN LAPTOP -->
             <div id="menuMyProfile" class="profileInfo hidden absolute top-full right-0 mt-3 w-[25rem] px-8 py-4 text-[1rem] rounded-lg border-2 border-brand-gold bg-brand-black ">
                 <div class="flex justify-center items-center mb-2 gap-3">
@@ -108,6 +109,8 @@ if(isset($_POST['form_identifier'])){
         <?php endif;?>
 
     </div>
+
+
     <!-- NAVBAR MENU MOBILE VIEW -->
     <div class="rightNav md:hidden w-full flex justify-end">
         <!-- menu nav logo button 3 strips -->

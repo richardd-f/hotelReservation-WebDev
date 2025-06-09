@@ -24,6 +24,39 @@ if(isset($_POST['form_identifier'])){
         $price = isset($_POST["price"]) ? $_POST["price"] : "";
         $bed_type_id = isset($_POST["bed_type_id"]) ? $_POST["bed_type_id"] : "";
         $facilities = isset($_POST["facilities"]) ? json_decode($_POST['facilities'], true) : [];
+
+        // 
+        if (isset($_FILES['imgUrl']) && $_FILES['imgUrl']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['imgUrl']['tmp_name'];
+        $fileName = $_FILES['imgUrl']['name'];
+
+        $uploadFolder = 'imgs/uploads/'; 
+        $newFileName = uniqid() . "_" . basename($fileName);
+        $destPath = $uploadFolder . $newFileName;
+
+        // create folder if if unavailable
+        $uploadDir = 'imgs/uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        if (move_uploaded_file($fileTmpPath, $destPath)) {
+            // File is uploaded successfully
+            $imgUrl = $destPath;
+            $status = addNewRoom($roomType, $price, $bed_type_id, $facilities, $imgUrl);
+
+            if ($status[0]) {
+                header("Location: roomsManager.php");
+                exit;
+            }
+        } else {
+            echo "Failed to upload image.";
+        }
+    } else {
+        echo "No image uploaded or upload error.";
+    }
+
+
         // var_dump($roomType, $price, $bed_type_id, $facilities);
         // die();
         $status = addNewRoom($roomType, $price, $bed_type_id, $facilities);
@@ -142,10 +175,15 @@ if(isset($_POST['form_identifier'])){
 
     <!-- ADD NEW ROOM MENU -->
     <div id="addNewRoomMenu" class="hidden fixed w-dvw h-dvh top-0 left-0 z-30 items-center justify-center bg-brand-black/40 backdrop-blur-sm" data-initial-bed-types="<?= $bedTypesInitialData?>">
-        <form method="post" id="innerAddNewRoom" class="w-[45rem] h-fit bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">
+        <form method="post" enctype="multipart/form-data" id="innerAddNewRoom" class="w-[45rem] h-fit bg-brand-black border-2 border-brand-gold rounded-lg text-brand-gold py-5 px-[3rem]">
             <input type="hidden" name="form_identifier" value="add_new_room">
             <h3 class="text-center mb-4 text-[2.5rem]">Add New Room</h3>
             
+            <div id="imageBox" class="inputContainer mb-3 flex justify-between w-full items-center">
+                <label for="imgUrl" class="text-[1.5rem]">Image</label>
+                <input required name="imgUrl" type="file" id="imgUrl" class="focus:outline-brand-gold outline-2 placeholder:text-gray-500 px-4 py-2 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem]">
+            </div>
+
             <div id="nameBox" class="inputContainer mb-3 flex justify-between w-full items-center">
                 <label for="roomType" class="text-[1.5rem]">Room Type</label>
                 <input name="roomType" type="text" id="roomType" placeholder="e.g. Deluxe Suite" class="focus:outline-brand-gold outline-2 placeholder:text-gray-500 px-4 py-2 w-[60%] bg-brand-black hover:bg-brand-gold text-brand-gold duration-200 hover:text-brand-black rounded-full border-2 border-brand-gold text-[1rem]">

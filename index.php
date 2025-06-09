@@ -178,7 +178,7 @@
         </div>
 
         <!-- SHOW OFF ROOM -->
-        <div class="flex flex-col lg:flex-row w-full lg:h-128 bg-brand-black">
+        <div id="ourServices" class="flex flex-col lg:flex-row w-full lg:h-128 bg-brand-black">
             <div class="lg:w-2/5 flex flex-col justify-center z-10 order-last lg:order-none bg-brand-black gap-9 px-[5rem] py-[3rem]">
                 <h2>Cozy Rooms</h2>
                 <p>Sleep comfortably in a cozy, nice room with a stunning view of the mountain cliff right outside your window. Feel the fresh air and peaceful calm all around as you rest, and wake up to the beautiful sunrise over the cliffs.</p>

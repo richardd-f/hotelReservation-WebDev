@@ -2,13 +2,14 @@
 
 require_once "db.php";
 
-function addNewRoom($roomType, $price, $bed_type_id, $facilities) {
+function addNewRoom($roomType, $price, $bed_type_id, $facilities, $imgUrl) {
+
     $conn = createDB();
     $conn->begin_transaction();
     try {
         // insert new room
-        $stmtRoom = $conn->prepare("INSERT INTO room_types (room_type, price, bed_type_id) VALUES (?, ?, ?)");
-        $stmtRoom->bind_param("sdi", $roomType, $price, $bed_type_id);
+        $stmtRoom = $conn->prepare("INSERT INTO room_types (room_type, price, bed_type_id, img_url) VALUES (?, ?, ?, ?)");
+        $stmtRoom->bind_param("sdis", $roomType, $price, $bed_type_id, $imgUrl);
         $stmtRoom->execute();
 
         // get the room_type_id
@@ -50,6 +51,7 @@ function getAllRooms() {
                     rt.room_type,
                     rt.price,
                     rt.bed_type_id,
+                    rt.img_url,
                     bt.type AS bed_type_name
                 FROM
                     room_types rt
@@ -69,7 +71,8 @@ function getAllRooms() {
                 'price'       => (float)$row['price'],
                 'bed_type_id' => (int)$row['bed_type_id'],
                 'bed_type'    => $row['bed_type_name'],
-                'facilities'  => []
+                'facilities'  => [],
+                'img_url'     => $row['img_url']
             ];
         }
     }
